@@ -44,10 +44,12 @@ func main() {
 
 	// setup the app database
 	db, err := setupDB(appDirPath)
-	defer db.boltDB.Close()
 
 	if err != nil {
 		fmt.Println("Failed to setup database")
+
+		db.boltDB.Close()
+
 		os.Exit(1)
 	}
 
@@ -75,9 +77,13 @@ func main() {
 
 	app.registerCommands(cmds)
 
-	// go!
+	// run the app
 	ok := app.run(cliArgs)
 
+	// close the database
+	db.boltDB.Close()
+
+	// exit with the correct code
 	if ok == true {
 		os.Exit(0)
 	} else {
