@@ -2,9 +2,7 @@ package main
 
 import (
 	"testing"
-	"time"
 
-	"github.com/google/go-github/github"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -14,8 +12,6 @@ func TestToString(t *testing.T) {
 		Filename:    "foo.txt",
 		Description: "foo text file",
 		Content:     "foo bar baz",
-		CreatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 55, 00, 0, time.UTC)},
-		UpdatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 56, 00, 0, time.UTC)},
 	}
 
 	s, err := snpt.toString()
@@ -24,11 +20,11 @@ func TestToString(t *testing.T) {
 		t.Fatalf("Failed to convert snippet to string: %s", err)
 	}
 
-	assert.Equal(t, s, `{"id":"foo123","filename":"foo.txt","description":"foo text file","content":"foo bar baz","created_at":"2016-12-04T11:55:00Z","updated_at":"2016-12-04T11:56:00Z"}`)
+	assert.Equal(t, s, `{"id":"foo123","filename":"foo.txt","description":"foo text file","content":"foo bar baz"}`)
 }
 
 func TestSnippetFromString(t *testing.T) {
-	snptStr := `{"id":"foo123","filename":"foo.txt","description":"foo text file","content":"foo bar baz","created_at":"2016-12-04T11:55:00Z","updated_at":"2016-12-04T11:56:00Z"}`
+	snptStr := `{"id":"foo123","filename":"foo.txt","description":"foo text file","content":"foo bar baz"}`
 
 	snpt, err := snippetFromString(snptStr)
 
@@ -41,7 +37,5 @@ func TestSnippetFromString(t *testing.T) {
 		Filename:    "foo.txt",
 		Description: "foo text file",
 		Content:     "foo bar baz",
-		CreatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 55, 00, 0, time.UTC)},
-		UpdatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 56, 00, 0, time.UTC)},
 	})
 }

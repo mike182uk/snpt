@@ -84,8 +84,6 @@ var syncCommandAction = func(app *application) bool {
 				Filename:    string(filename),
 				Description: *gist.Description,
 				Content:     gistContent,
-				CreatedAt:   github.Timestamp{Time: *gist.CreatedAt},
-				UpdatedAt:   github.Timestamp{Time: *gist.UpdatedAt},
 			}
 
 			snptStr, err = snpt.toString()

@@ -2,17 +2,14 @@ package main
 
 import (
 	"encoding/json"
-
-	"github.com/google/go-github/github"
+	"strings"
 )
 
 type snippet struct {
-	ID          string           `json:"id"`
-	Filename    string           `json:"filename"`
-	Description string           `json:"description"`
-	Content     string           `json:"content"`
-	CreatedAt   github.Timestamp `json:"created_at"`
-	UpdatedAt   github.Timestamp `json:"updated_at"`
+	ID          string `json:"id"`
+	Filename    string `json:"filename"`
+	Description string `json:"description"`
+	Content     string `json:"content"`
 }
 
 func (snpt snippet) toString() (string, error) {
@@ -32,7 +29,7 @@ func (snpts snippets) Len() int {
 }
 
 func (snpts snippets) Less(i, j int) bool {
-	return snpts[j].CreatedAt.After(snpts[i].CreatedAt.Time)
+	return strings.ToLower(snpts[i].Filename) < strings.ToLower(snpts[j].Filename)
 }
 
 func (snpts snippets) Swap(i, j int) {
