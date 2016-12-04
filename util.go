@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"regexp"
+	"sort"
 
 	"github.com/fatih/color"
 	"github.com/segmentio/go-prompt"
@@ -40,9 +41,8 @@ func resolveSnippet(cliArgs []string, hasInput bool, input io.Reader, db *databa
 	var (
 		snptID     string
 		promptOpts []string
+		snpts      snippets
 	)
-
-	snpts := make(map[string]snippet)
 
 	// fetch snippets from db
 	snptStrs, err := db.getAll(snippetsBucketName)
@@ -51,11 +51,13 @@ func resolveSnippet(cliArgs []string, hasInput bool, input io.Reader, db *databa
 		return snippet{}, err
 	}
 
-	for k, v := range snptStrs {
+	for _, v := range snptStrs {
 		s, _ := snippetFromString(v)
 
-		snpts[k] = s
+		snpts = append(snpts, s)
 	}
+
+	sort.Sort(snpts)
 
 	// if there are no snippets, return early
 	if len(snpts) == 0 {
@@ -91,8 +93,10 @@ func resolveSnippet(cliArgs []string, hasInput bool, input io.Reader, db *databa
 	}
 
 	// return found snippet
-	if snpt, ok := snpts[snptID]; ok {
-		return snpt, nil
+	for _, snpt := range snpts {
+		if snpt.ID == snptID {
+			return snpt, nil
+		}
 	}
 
 	// return an empty snippet if no snippet was found

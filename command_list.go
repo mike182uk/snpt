@@ -1,11 +1,13 @@
 package main
 
+import "sort"
+
 var listCommandName = "ls"
 
 var listCommandUsage = "\nUsage: snpt ls"
 
 var listCommandAction = func(app *application) bool {
-	snpts := []snippet{}
+	var snpts snippets
 
 	snptStrs, err := app.db.getAll(snippetsBucketName)
 
@@ -24,6 +26,8 @@ var listCommandAction = func(app *application) bool {
 	if len(snpts) == 0 {
 		app.outputInfo("There are no snippets to list")
 	}
+
+	sort.Sort(snpts)
 
 	for _, snpt := range snpts {
 		app.output(generateSnippetDescription(snpt))

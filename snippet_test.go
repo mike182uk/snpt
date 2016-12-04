@@ -2,7 +2,9 @@ package main
 
 import (
 	"testing"
+	"time"
 
+	"github.com/google/go-github/github"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -12,8 +14,8 @@ func TestToString(t *testing.T) {
 		Filename:    "foo.txt",
 		Description: "foo text file",
 		Content:     "foo bar baz",
-		CreatedAt:   "2016-12-04T11:55:00Z",
-		UpdatedAt:   "2016-12-04T11:56:00Z",
+		CreatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 55, 00, 0, time.UTC)},
+		UpdatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 56, 00, 0, time.UTC)},
 	}
 
 	s, err := snpt.toString()
@@ -39,7 +41,7 @@ func TestSnippetFromString(t *testing.T) {
 		Filename:    "foo.txt",
 		Description: "foo text file",
 		Content:     "foo bar baz",
-		CreatedAt:   "2016-12-04T11:55:00Z",
-		UpdatedAt:   "2016-12-04T11:56:00Z",
+		CreatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 55, 00, 0, time.UTC)},
+		UpdatedAt:   github.Timestamp{Time: time.Date(2016, 12, 04, 11, 56, 00, 0, time.UTC)},
 	})
 }
