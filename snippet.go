@@ -7,6 +7,8 @@ type snippet struct {
 	Filename    string `json:"filename"`
 	Description string `json:"description"`
 	Content     string `json:"content"`
+	CreatedAt   string `json:"created_at"`
+	UpdatedAt   string `json:"updated_at"`
 }
 
 func (snpt snippet) toString() (string, error) {
