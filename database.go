@@ -85,11 +85,14 @@ func (db *database) set(k string, v string) error {
 
 func (db *database) empty(k string) error {
 	return db.boltDB.Batch(func(tx *bolt.Tx) error {
-		var err error
+		if err := tx.DeleteBucket([]byte(k)); err != nil {
+			return err
+		}
 
-		err = tx.DeleteBucket([]byte(k))
-		_, err = tx.CreateBucket([]byte(k))
+		if _, err := tx.CreateBucket([]byte(k)); err != nil {
+			return err
+		}
 
-		return err
+		return nil
 	})
 }

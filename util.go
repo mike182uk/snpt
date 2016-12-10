@@ -65,7 +65,7 @@ func resolveSnippet(cliArgs []string, hasInput bool, input io.Reader, db *databa
 	}
 
 	// if there is input data, try and read from it
-	if hasInput == true {
+	if hasInput {
 		reader := bufio.NewReader(input)
 
 		line, _, err := reader.ReadLine()

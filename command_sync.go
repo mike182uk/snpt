@@ -45,7 +45,12 @@ var syncCommandAction = func(app *application) bool {
 	spinner := getSpinner(app, "Syncing gists...")
 	spinner.Start()
 
-	app.db.empty(snippetsBucketName)
+	if app.db.empty(snippetsBucketName) != nil {
+		spinner.Stop()
+		app.outputError("Failed to empty database")
+
+		return false
+	}
 
 	ghClient := setupGithubClient(token)
 	gists, err := fetchGists(ghClient)

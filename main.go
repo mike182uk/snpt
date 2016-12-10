@@ -47,9 +47,6 @@ func main() {
 
 	if err != nil {
 		fmt.Println("Failed to setup database")
-
-		db.boltDB.Close()
-
 		os.Exit(1)
 	}
 
@@ -84,7 +81,7 @@ func main() {
 	db.boltDB.Close()
 
 	// exit with the correct code
-	if ok == true {
+	if ok {
 		os.Exit(0)
 	} else {
 		os.Exit(1)
@@ -124,6 +121,8 @@ func setupDB(appDirPath string) (*database, error) {
 	}
 
 	if err = db.init(bucketNames); err != nil {
+		boltDB.Close()
+
 		return nil, err
 	}
 

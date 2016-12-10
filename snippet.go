@@ -38,10 +38,7 @@ func (snpts snippets) Swap(i, j int) {
 
 func snippetFromString(s string) (snippet, error) {
 	snpt := snippet{}
+	err := json.Unmarshal([]byte(s), &snpt)
 
-	if err := json.Unmarshal([]byte(s), &snpt); err != nil {
-		return snpt, err
-	}
-
-	return snpt, nil
+	return snpt, err
 }
