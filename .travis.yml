@@ -15,17 +15,18 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-  - go get github.com/mitchellh/gox
+  - make install-env-deps
+  - make install
   # So we can use find -execdir on travis - https://github.com/travis-ci/travis-ci/issues/4862
   - PATH=${PATH//:\.\/node_modules\/\.bin/}
 
 script:
-  - go vet
-  - go test -v
+  - make lint
+  - make test
 
 after_success:
-  - gox -output "dist/snpt-$TRAVIS_TAG-{{.OS}}-{{.Arch}}/snpt"
-  - find dist -mindepth 1 -maxdepth 1 -execdir tar -czvf {}.tar.gz {} \;
+  - make build-all
+  - make package
 
 matrix:
   allow_failures:
@@ -36,7 +37,7 @@ deploy:
   api_key:
     secure: "KqhQTRZx6Y0Hdu9HQ14avC7i2OvA60tPC5rbpNQih/MI8bb8JEncMYcE9Ntyr4NKtXf9vY5X7klIKc77gTGecSMarIlukaN/WJb5t35ZOC38d1py7P9u6qBkS9yPmR+13AavQyBROJx29H4TBbFVbGfl3ELepNKg6ivA8XR6n4xSfPR+xjydPT1p8E69Ux5h+S9+qfQ1aa002aB1vrLm5wVnrJuaE4PjO2d7JuQcXnJFfqyI/dG9OTCDvkuGETIWMf7P9eq6YzMIQJoJ8ey8S0ErEBGloKT4QfpAZf24L5ZalxuGtzMdFBhtxVr6IGB7eouoUqf1I0oNUol+ihsdRkWFOIKN4nHB2kuKLDzL2uM76rmEXDA4+cQS1kgQyr7GSoPaB9pvByl1ITl7JA0u7HIYlkqPB2wMVq5Y2KG38rkuc8V+yAUFdJCL5lXMV+F7r/zJFTB6TjedBY4Oh/O0v8yhl7NlHL6rat11+g6hi3sn3a0sBN+xChk74TbQ+oj7UDOfl+9+cINlLVq3+GIjqFNPcPP1uMmXzGpW+neh+mWg0ncc8o6lnlSalBvEBTJ8fKseJatFGLC+A49Nt+0YxPiBtJKIpdaFGlbaUqGBiH7us7K6aIdymAE9p2P58lr9HJMgdzABxDnjiqczJkk9/qYgaWNOaD8pFd2GR0Btmic="
   file_glob: true
-  file: dist/*.tar.gz
+  file: build/*.tar.gz
   skip_cleanup: true
   on:
     tags: true
