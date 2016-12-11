@@ -1,4 +1,4 @@
-.PHONY: default test lint build build-all package clean install install-env-deps fmt
+.PHONY: default test lint build build-all package clean clean-all install install-env-deps fmt
 
 BIN=snpt
 BUILD_DIR=./build
@@ -27,6 +27,9 @@ package:
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+clean-all: clean
+	rm -rf ./vendor
 
 install:
 	glide install
