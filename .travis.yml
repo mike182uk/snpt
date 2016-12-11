@@ -23,7 +23,7 @@ before_script:
 script:
   - make lint
   - make test
-  - make build && rm -rf build
+  - make build && make clean
 
 after_success:
   - [ -n "$TRAVIS_TAG" ] && make build-all && make package
