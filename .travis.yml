@@ -26,7 +26,7 @@ script:
   - make build && make clean
 
 after_success:
-  - [ -n "$TRAVIS_TAG" ] && make build-all && make package
+  - if [ -n "$TRAVIS_TAG" ]; then make build-all && make package; fi;
 
 matrix:
   allow_failures:
