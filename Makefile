@@ -24,7 +24,7 @@ build:
 
 .PHONY: build-all
 build-all:
-	gox -output "$(BUILD_DIR)/$(BIN)-$(TRAVIS_TAG)-{{.OS}}-{{.Arch}}/$(BIN)" $(SRC_DIR)/...
+	gox -output "$(BUILD_DIR)/$(BIN)-$(TRAVIS_TAG)-{{.OS}}-{{.Arch}}/$(BIN)" -os="darwin windows linux" -arch="amd64" $(SRC_DIR)/...
 
 .PHONY: package
 package:
