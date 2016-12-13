@@ -9,6 +9,10 @@ addons:
     packages:
       - xclip # So we can run the clipboard tests
 
+cache:
+  directories:
+    - vendor
+
 before_install:
   # So we can run the clipboard tests
   - export DISPLAY=:99.0
