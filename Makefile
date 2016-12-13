@@ -13,6 +13,7 @@ lint:
 	gometalinter \
 		--disable=errcheck \
 		--disable=gotype \
+		--enable=gofmt \
 		--vendor \
 		$(SRC_DIR)/...
 
