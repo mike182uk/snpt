@@ -116,7 +116,7 @@ alias ws="snpt ls | fzf | snpt write" # ws for write snippet
 
 ### <a id="alfred-workflow"></a>Alfred Workflow
 
-The [Alfred workflow](https://github.com/mike182uk/snpt-alfred-workflow) provides quick access to your snippets from Alfred.
+The [Snpt Alfred Workflow](https://github.com/mike182uk/snpt-alfred-workflow) provides quick access to your snippets from Alfred.
 
 ## <a id="bash-completion"></a>Bash completion
 
