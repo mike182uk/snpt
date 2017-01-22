@@ -2,13 +2,13 @@ package main
 
 import "github.com/segmentio/go-prompt"
 
-var tokenCommandName = "token"
+var tokenCommandName = "token" // #nosec
 
 var tokenCommandUsage = `
 Usage: snpt token
 
 You will be prompted to supply your GitHub access token. This will be saved
-in Snpt's database for use when retrieving Gists from GitHub.`
+in Snpt's database for use when retrieving Gists from GitHub.` // #nosec
 
 var tokenCommandAction = func(app *application) bool {
 	token := prompt.PasswordMasked("Enter your GitHub access token")

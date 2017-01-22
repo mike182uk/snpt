@@ -12,7 +12,7 @@ import (
 	"github.com/parnurzeal/gorequest"
 )
 
-const tokenConfigKey = "gh-access-token"
+const tokenConfigKey = "gh-access-token" // #nosec
 
 var syncCommandName = "sync"
 

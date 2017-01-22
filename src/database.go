@@ -65,7 +65,7 @@ func (db *database) getAll(k string) (map[string]string, error) {
 		vals[string(k)] = string(v)
 
 		return nil
-	})
+	}) // #nosec
 
 	return vals, nil
 }
