@@ -1,9 +1,9 @@
 # <img src="icon.png" height="28"> Snpt
 
-[![Version](https://img.shields.io/github/release/mike182uk/snpt-go.svg?style=flat-square)](https://github.com/mike182uk/snpt-go)
-[![Build Status](https://img.shields.io/travis/mike182uk/snpt-go.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt-go)
-[![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt-go/total.svg?style=flat-square)](https://github.com/mike182uk/snpt-go)
-[![License](https://img.shields.io/github/license/mike182uk/snpt-go.svg?style=flat-square)](https://github.com/mike182uk/snpt-go)
+[![Version](https://img.shields.io/github/release/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
+[![Build Status](https://img.shields.io/travis/mike182uk/snpt.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt)
+[![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt/total.svg?style=flat-square)](https://github.com/mike182uk/snpt)
+[![License](https://img.shields.io/github/license/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
 
 A [gist](https://gist.github.com/) powered CLI snippet retriever.
 
@@ -34,7 +34,7 @@ Save a snippet as a gist in GitHub, retrieve the snippet on the command line.
 
 ## <a id="installation"></a>Installation
 
-Download the binary compatible with your system from  [here](https://github.com/mike182uk/snpt-go/releases).
+Download the binary compatible with your system from  [here](https://github.com/mike182uk/snpt/releases).
 
 ## <a id="usage"></a>Usage
 

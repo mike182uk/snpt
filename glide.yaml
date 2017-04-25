@@ -1,4 +1,4 @@
-package: github.com/mike182uk/snpt-go
+package: github.com/mike182uk/snpt
 import:
 - package: github.com/ararog/timeago
 - package: github.com/atotto/clipboard

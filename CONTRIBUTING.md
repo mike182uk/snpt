@@ -2,11 +2,11 @@
 
 Contributions are **welcome!**
 
-Contributions can be made via a Pull Request on [GitHub](https://github.com/mike182uk/snpt-go).
+Contributions can be made via a Pull Request on [GitHub](https://github.com/mike182uk/snpt).
 
 ## Reporting an Issue
 
-Please report issues via the issue tracker on [GitHub](https://github.com/mike182uk/snpt-go). For security-related issues, please email the maintainer directly.
+Please report issues via the issue tracker on [GitHub](https://github.com/mike182uk/snpt). For security-related issues, please email the maintainer directly.
 
 ## Pull Requests
 
