@@ -12,6 +12,7 @@ import:
 - package: github.com/segmentio/go-prompt
 - package: github.com/spf13/afero
 - package: golang.org/x/oauth2
+- package: golang.org/x/net/context
 testImport:
 - package: github.com/stretchr/testify
   subpackages:

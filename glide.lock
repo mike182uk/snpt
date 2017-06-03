@@ -1,5 +1,5 @@
-hash: 3a24b42c6f476ff243759f997e9e0ed81600ce0db78f7885989972c67fe5c284
-updated: 2016-12-11T11:43:02.544671431Z
+hash: f1e5f5f1d8b1479a1016e32b085c9727e55efa589c02348ac5dc6f43d2fb7557
+updated: 2017-06-03T22:03:00.619781242+01:00
 imports:
 - name: github.com/ararog/timeago
   version: e9969cf18b8d5f04cc42f050e8b9968e152cd294
@@ -12,7 +12,7 @@ imports:
 - name: github.com/fatih/color
   version: bf82308e8c8546dc2b945157173eb8a959ae9505
 - name: github.com/golang/protobuf
-  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
+  version: 8616e8ee5e20a1704615e6c8d7afcdac06087a67
   subpackages:
   - proto
 - name: github.com/google/go-github
@@ -24,7 +24,7 @@ imports:
   subpackages:
   - query
 - name: github.com/howeyc/gopass
-  version: f5387c492211eb133053880d23dfae62aa14123d
+  version: 3ca23474a7c7203e0a0a070fd33508f6efdb9b3d
 - name: github.com/mattn/go-colorable
   version: d228849504861217f796da67fae4f6e347643f15
 - name: github.com/mattn/go-isatty
@@ -40,29 +40,29 @@ imports:
   subpackages:
   - mem
 - name: golang.org/x/crypto
-  version: b07d8c96772f426812d3fc5530710ec1f3b205e7
+  version: 1f22c0103821b9390939b6776727195525381532
   subpackages:
   - ssh/terminal
 - name: golang.org/x/net
-  version: b1a2d6e8c8b5fc8f601ead62536f02a8e1b6217d
+  version: e90d6d0afc4c315a0d87a568ae68577cc15149a0
   subpackages:
   - context
   - publicsuffix
 - name: golang.org/x/oauth2
-  version: da3ce8d62a7f77aadfda06cb82bd604d6469c645
+  version: 3c3a985cb79f52a3190fbc056984415ca6763d01
   subpackages:
   - internal
 - name: golang.org/x/sys
-  version: 478fcf54317e52ab69f40bb4c7a1520288d7f7ea
+  version: 8f0908ab3b2457e2e15403d3697c9ef5cb4b57a9
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: 47a200a05c8b3fd1b698571caecbb68beb2611ec
+  version: 2910a502d2bf9e43193af9d68ca516529614eed3
   subpackages:
   - transform
   - unicode/norm
 - name: google.golang.org/appengine
-  version: ca59ef35f409df61fa4a5f8290ff289b37eccfb8
+  version: 4f7eeb5305a4ba1966344836ba4af9996b7b4e05
   subpackages:
   - internal
   - internal/base
