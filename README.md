@@ -2,7 +2,8 @@
 
 [![Version](https://img.shields.io/github/release/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
 [![Build Status](https://img.shields.io/travis/mike182uk/snpt.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt)
-[![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt/total.svg?style=flat-square)](https://github.com/mike182uk/snpt)
+[![Coveralls](https://img.shields.io/coveralls/mike182uk/snpt/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/snpt)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mike182uk/snpt)](https://goreportcard.com/report/github.com/mike182uk/snpt)
 [![License](https://img.shields.io/github/license/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
 
 A [gist](https://gist.github.com/) powered CLI snippet retriever.
