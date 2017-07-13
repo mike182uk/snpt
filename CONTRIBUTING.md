@@ -12,7 +12,7 @@ Please report issues via the issue tracker on [GitHub](https://github.com/mike18
 
 - **Lint changes** - Make sure you run `make lint` before committing your code.
 
-- **Add tests where appropriate** - Make sure new features or bug fixes are covered by a test/
+- **Add tests where appropriate** - Make sure new features or bug fixes are covered by a test.
 
 - **Document any change in behaviour** - Make sure the README and any other relevant documentation are kept up-to-date.
 

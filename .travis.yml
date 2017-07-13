@@ -4,19 +4,14 @@ go:
   - 1.8
   - tip
 
-addons:
-  apt:
-    packages:
-      - xclip # So we can run the clipboard tests
-
 cache:
   directories:
     - vendor
 
-before_install:
-  # So we can run the clipboard tests
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+env:
+  global:
+    # coveralls repo token
+    - secure: N9SmiHqmT62JBF4+ChXXrYKdIfTZ7nHkcQHnSRzyZ4ii00uY9g9w/8nWPGaGBJ4WGoaCUJx+VkVCS1UOf/UbZ8CqST89LE5EFc2N4AnqFSA3iRA3BlTb1OehppdYSA9GdrmX+NbaDJNdaqgOiz+JpBvbno2+hP0jXQPPqEhQKlRlP+I4QlwYtWiHm+iwoNP88kmunBj+G/qe79kq0qflQOFcZQIujORWjNLGNKepA06Bnb3Yi42EihXCQP7BbXWgKhp3SVTvIAL7wfEYjTOmPRXvU+bs8O7DI/C002CfnyiE00/KzKNaD+ICRiBh33ew3wD3FraLuXlWJ9BDNXKjfv04y0Mif/oERHc2Y08BNuQAFnlD2QCMrze6bRrJRf0Z5wD9tQn52BhP6w9qnxmMXitDu+j9uUj81wNz9uiEdFm+bZvn0HKHcgMzye9VCsPXRhmAABlr9XlGY+vjiiaguiWM/d6x87CtTBZva9FVZkfd3UY61X2L4vSIYuGOQe86GJFb4w8u71iD1Do4lnp/mKXRymeUgMTWIyF2meZK/7gF1TwLxskmvgeEBZ7uTSpsU+iNuIV4hzmPn5IAQgQQc4RqFPOHP7ZqvRvA++cImTHk5IW78KW0B2Ca2QPJHXNekHuAMJV65VSnhh4h4r3GpLh15rAMqx+Ud2BFsRzWxuY=
 
 before_script:
   - make install-env-deps
@@ -26,7 +21,7 @@ before_script:
 
 script:
   - make lint
-  - make test
+  - make test && make coverage
   - make build && make clean
 
 after_success:
