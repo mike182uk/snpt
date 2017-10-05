@@ -7,6 +7,7 @@ import (
 
 	copyCmd "github.com/mike182uk/snpt/cmd/snpt/command/copy"
 	listCmd "github.com/mike182uk/snpt/cmd/snpt/command/list"
+	printCmd "github.com/mike182uk/snpt/cmd/snpt/command/print"
 	syncCmd "github.com/mike182uk/snpt/cmd/snpt/command/sync"
 	tokenCmd "github.com/mike182uk/snpt/cmd/snpt/command/token"
 	versionCmd "github.com/mike182uk/snpt/cmd/snpt/command/version"
@@ -70,6 +71,7 @@ func main() {
 	// register commands
 	rootCmd.AddCommand(copyCmd.New(out, in, hasInput, snptStore))
 	rootCmd.AddCommand(listCmd.New(out, snptStore))
+	rootCmd.AddCommand(printCmd.New(out, in, hasInput, snptStore))
 	rootCmd.AddCommand(syncCmd.New(out, config, snptStore))
 	rootCmd.AddCommand(tokenCmd.New(out, config))
 	rootCmd.AddCommand(versionCmd.New(out))

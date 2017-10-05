@@ -21,6 +21,7 @@ Save a snippet as a gist in GitHub, retrieve the snippet on the command line.
   - [Syncing your snippets](#sync)
   - [Copying a snippet to the clipboard](#cp)
   - [Creating a file from a snippet](#write)
+  - [Printing a snippet to the screen](#print)
   - [Listing available snippets](#list)
   - [Setting a new GitHub access token](#token)
   - [Viewing help for a command](#help)
@@ -67,6 +68,14 @@ snpt write [snippetID]
 ```
 
 `snippetID` is an optional parameter. If a `snippetID` is not supplied a prompt will be displayed allowing you to choose a snippet to create a file from. The created file will be named after the name of the gist file.
+
+### <a id="print"></a>Printing a snippet to the screen
+
+```
+snpt print [snippetID]
+```
+
+`snippetID` is an optional parameter. If a `snippetID` is not supplied a prompt will be displayed allowing you to choose a snippet to print to the screen.
 
 ### <a id="list"></a>Listing available snippets
 
