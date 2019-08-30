@@ -7,29 +7,24 @@ default: build
 
 .PHONY: test
 test:
-	go test -cover -v ./internal/...
+	GO111MODULE=on go test -v ./internal/...
 
 .PHONY: coverage
 coverage:
-	goveralls -package=./internal/...
+	GO111MODULE=on go test -v -covermode=count -coverprofile=coverage.out ./internal/...
+	goveralls -coverprofile=coverage.out -service=travis-ci
 
 .PHONY: lint
 lint:
-	gometalinter \
-		--enable=gofmt \
-		--enable=misspell \
-		--vendor \
-		--deadline=180s \
-		--exclude=internal/platform/storage/test.go \
-		./internal/... ./cmd/...
+	GO111MODULE=on golangci-lint run
 
 .PHONY: build
 build:
-	go build -o $(BUILD_DIR)/$(BIN) $(ENTRYPOINT)
+	GO111MODULE=on go build -o $(BUILD_DIR)/$(BIN) $(ENTRYPOINT)
 
 .PHONY: build-all
 build-all:
-	gox -output "$(BUILD_DIR)/$(BIN)-$(TRAVIS_TAG)-{{.OS}}-{{.Arch}}/$(BIN)" -os="darwin windows linux" -arch="amd64" $(ENTRYPOINT)
+	GO111MODULE=on gox -output "$(BUILD_DIR)/$(BIN)-$(TRAVIS_TAG)-{{.OS}}-{{.Arch}}/$(BIN)" -os="darwin windows linux" -arch="amd64" $(ENTRYPOINT)
 
 .PHONY: package
 package:
@@ -39,21 +34,16 @@ package:
 clean:
 	rm -rf $(BUILD_DIR)
 
-.PHONY: clean-all
-clean-all: clean
-	rm -rf ./vendor
-
 .PHONY: install
-install:
-	dep ensure
+install: install-tools
+	GO111MODULE=on go mod download
 
-.PHONY: install-env-deps
-install-env-deps:
-	go get -u github.com/mitchellh/gox
-	go get -u github.com/alecthomas/gometalinter
-	go get -u github.com/golang/dep/cmd/dep
-	go get -u github.com/mattn/goveralls
-	gometalinter --install
+.PHONY: install-tools
+install-tools:
+	GO111MODULE=off \
+	go get -u github.com/mitchellh/gox \
+		github.com/mattn/goveralls \
+		github.com/golangci/golangci-lint/cmd/golangci-lint
 
 .PHONY: fmt
 fmt:

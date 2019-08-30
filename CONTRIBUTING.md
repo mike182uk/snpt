@@ -10,7 +10,7 @@ Please report issues via the issue tracker on [GitHub](https://github.com/mike18
 
 ## Pull Requests
 
-- **Lint changes** - Make sure you run `make lint` before committing your code.
+- **Lint & format changes** - Make sure you run `make lint` &  `make fmt` before committing your code.
 
 - **Add tests where appropriate** - Make sure new features or bug fixes are covered by a test.
 
@@ -25,11 +25,8 @@ Please report issues via the issue tracker on [GitHub](https://github.com/mike18
 ## Install project dependencies
 
 ```bash
-make install-env-deps
 make install
 ```
-
-You will need to do this before you make any changes.
 
 ## Running the Tests
 
@@ -42,3 +39,7 @@ make test
 ```bash
 make build
 ```
+
+## Notes
+
+- Package layout is based on https://www.ardanlabs.com/blog/2017/02/package-oriented-design.html

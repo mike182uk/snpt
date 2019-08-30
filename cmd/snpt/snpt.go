@@ -62,7 +62,7 @@ func main() {
 
 	// is there any input on stdin?
 	hasInput := false
-	stat, _ := in.Stat() // nolint: gas
+	stat, _ := in.Stat()
 
 	if stat.Mode()&os.ModeNamedPipe != 0 {
 		hasInput = true

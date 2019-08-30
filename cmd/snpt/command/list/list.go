@@ -25,7 +25,7 @@ func New(out io.Writer, snptStore *snippet.Store) *cobra.Command {
 			}
 
 			if len(snpts) == 0 {
-				fmt.Fprintln(out, "There are no snippets to list") // nolint: gas
+				fmt.Fprintln(out, "There are no snippets to list")
 
 				return nil
 			}
@@ -33,7 +33,7 @@ func New(out io.Writer, snptStore *snippet.Store) *cobra.Command {
 			sort.Sort(snpts)
 
 			for _, snpt := range snpts {
-				fmt.Fprintln(out, cliHelper.GenerateSnippetDescription(snpt)) // nolint: gas
+				fmt.Fprintln(out, cliHelper.GenerateSnippetDescription(snpt))
 			}
 
 			return nil

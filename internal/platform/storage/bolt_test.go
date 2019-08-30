@@ -18,7 +18,7 @@ func TestNewStore(t *testing.T) {
 	defer cleanupTestDB(dbDir)
 
 	store, err := NewBoltStore(dbPath)
-	defer store.boltDB.Close() // nolint: errcheck,megacheck
+	defer store.boltDB.Close() //nolint: staticcheck
 
 	assert.Nil(t, err)
 	assert.IsType(t, &BoltStore{}, store)
@@ -54,7 +54,7 @@ func TestInitBucket(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	defer db.Close() // nolint: errcheck,megacheck
+	defer db.Close()
 
 	err = db.Update(func(tx *bolt.Tx) error {
 		return tx.DeleteBucket(testBucket) // will return error if bucket does not exist
@@ -96,7 +96,7 @@ func TestGet(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	defer store.boltDB.Close() // nolint: errcheck,megacheck
+	defer store.boltDB.Close()
 
 	result, _ := store.Get(string(testBucket), key)
 
@@ -115,7 +115,7 @@ func TestGetInvalidBucketErr(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	defer store.boltDB.Close() // nolint: errcheck,megacheck
+	defer store.boltDB.Close()
 
 	_, err = store.Get(invalidBucket, "bar")
 
@@ -160,7 +160,7 @@ func TestGetAll(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	defer store.boltDB.Close() // nolint: errcheck,megacheck
+	defer store.boltDB.Close()
 
 	expected := map[string]string{"foo": "bar", "baz": "qux"}
 	result, err := store.GetAll(string(testBucket))
@@ -214,7 +214,7 @@ func TestPut(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	defer db.Close() // nolint: errcheck,megacheck
+	defer db.Close()
 
 	_ = db.View(func(tx *bolt.Tx) error {
 		b := tx.Bucket(testBucket)
@@ -261,7 +261,7 @@ func TestDeleteAll(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	defer store.boltDB.Close() // nolint: errcheck,megacheck
+	defer store.boltDB.Close()
 
 	if err := store.DeleteAll(string(testBucket)); err != nil {
 		t.Fatal(err)

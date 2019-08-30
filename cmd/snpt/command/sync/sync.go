@@ -16,7 +16,6 @@ import (
 )
 
 // New returns a new instance of the sync command
-// nolint: gocyclo
 func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Command {
 	return &cobra.Command{
 		Use:   "sync",
@@ -34,7 +33,7 @@ func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Comma
 				return nil
 			}
 
-			if lastSync, _ := getLastSync(c); lastSync != "" { // nolint: gas
+			if lastSync, _ := getLastSync(c); lastSync != "" {
 				cliHelper.PrintInfo(out, "Gists last synced %s", lastSync)
 			}
 
@@ -96,7 +95,7 @@ func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Comma
 				}
 			}
 
-			_ = c.Set(config.LastSyncKey, time.Now().Format(time.RFC3339)) // nolint: gas
+			_ = c.Set(config.LastSyncKey, time.Now().Format(time.RFC3339))
 
 			spinner.Stop()
 
