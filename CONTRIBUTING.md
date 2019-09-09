@@ -28,13 +28,13 @@ Please report issues via the issue tracker on [GitHub](https://github.com/mike18
 make install
 ```
 
-## Running the Tests
+## Running the tests
 
 ```bash
 make test
 ```
 
-## Building the Project
+## Building the project
 
 ```bash
 make build
