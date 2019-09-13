@@ -7,8 +7,8 @@ import (
 	"path"
 	"testing"
 
-	"github.com/boltdb/bolt"
 	"github.com/stretchr/testify/assert"
+	bolt "go.etcd.io/bbolt"
 )
 
 var testBucket = []byte("test")
