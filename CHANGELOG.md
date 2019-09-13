@@ -1,5 +1,9 @@
 # Changelog
 
+# 3.0.0
+
+- Use [Protocol Buffers](https://developers.google.com/protocol-buffers/) to serialize data
+
 # 2.1.0
 
 - Add `print` command

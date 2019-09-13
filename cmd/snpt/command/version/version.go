@@ -7,7 +7,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const version = "2.0.0"
+const version = "3.0.0"
 
 // New returns a new instance of the version command
 func New(out io.Writer) *cobra.Command {
