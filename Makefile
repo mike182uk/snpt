@@ -15,6 +15,10 @@ coverage: ## Generate test coverage
 lint: ## Lint the soruce files
 	GO111MODULE=on golangci-lint run
 
+.PHONY: proto
+proto: ## Compile protocol buffers
+	protoc --go_out=. internal/snippet/snippet.proto
+
 .PHONY: build
 build: ## Build the project for the current architecture
 	GO111MODULE=on go build -o $(BUILD_DIR)/$(BIN) $(ENTRYPOINT)

@@ -40,6 +40,14 @@ make test
 make build
 ```
 
+## Compile the protocol buffers
+
+```bash
+make proto
+```
+
+⚠️ You will need to manually install the [Protobuf Runtime](https://github.com/protocolbuffers/protobuf#protobuf-runtime-installation) before you can compile the protocol buffers.
+
 ## Notes
 
 - Package layout is based on https://www.ardanlabs.com/blog/2017/02/package-oriented-design.html
