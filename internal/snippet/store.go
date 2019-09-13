@@ -1,7 +1,7 @@
 package snippet
 
 import (
-	"encoding/json"
+	"github.com/golang/protobuf/proto"
 
 	"github.com/mike182uk/snpt/internal/platform/storage"
 )
@@ -32,7 +32,7 @@ func (s *Store) Get(id string) (snpt Snippet, err error) {
 		return
 	}
 
-	err = json.Unmarshal([]byte(b), &snpt)
+	err = proto.Unmarshal([]byte(b), &snpt)
 
 	return
 }
@@ -48,7 +48,7 @@ func (s *Store) GetAll() (snpts Snippets, err error) {
 	for _, b := range bs {
 		var snpt Snippet
 
-		err = json.Unmarshal([]byte(b), &snpt)
+		err = proto.Unmarshal([]byte(b), &snpt)
 
 		if err != nil {
 			return
@@ -62,13 +62,13 @@ func (s *Store) GetAll() (snpts Snippets, err error) {
 
 // Put stores a snippet in the store
 func (s *Store) Put(snpt Snippet) error {
-	b, err := json.Marshal(snpt)
+	b, err := proto.Marshal(&snpt)
 
 	if err != nil {
 		return err
 	}
 
-	return s.storage.Put(bucketName, snpt.ID, string(b))
+	return s.storage.Put(bucketName, snpt.GetId(), string(b))
 }
 
 // DeleteAll deletes all snippets in the store

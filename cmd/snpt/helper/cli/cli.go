@@ -22,7 +22,7 @@ func GenerateSnippetDescription(snpt snippet.Snippet) string {
 		desc += fmt.Sprintf(" - %s", snpt.Description)
 	}
 
-	desc += fmt.Sprintf(" [%s]", snpt.ID)
+	desc += fmt.Sprintf(" [%s]", snpt.GetId())
 
 	return desc
 }
@@ -77,7 +77,7 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 
 	// return found snippet
 	for _, snpt := range snpts {
-		if snpt.ID == snptID {
+		if snpt.GetId() == snptID {
 			return snpt, nil
 		}
 	}

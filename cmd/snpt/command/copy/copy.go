@@ -32,15 +32,15 @@ Snpt will parse anything in the square brackets that appears at the end of the s
 		RunE: func(cmd *cobra.Command, args []string) error {
 			snpt, err := cliHelper.ResolveSnippet(args, hasInput, in, snptStore)
 
-			if err != nil || snpt.ID == "" {
+			if err != nil || snpt.GetId() == "" {
 				return errors.New("Failed to retrieve snippet from database")
 			}
 
 			if err := clipboard.WriteAll(snpt.Content); err != nil {
-				return fmt.Errorf("Failed to copy %s to the clipboard", snpt.Filename)
+				return fmt.Errorf("Failed to copy %s to the clipboard", snpt.GetFilename())
 			}
 
-			cliHelper.PrintSuccess(out, "%s copied to the clipboard", snpt.Filename)
+			cliHelper.PrintSuccess(out, "%s copied to the clipboard", snpt.GetFilename())
 
 			return nil
 		},

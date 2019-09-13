@@ -77,7 +77,7 @@ func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Comma
 					}
 
 					snpt := snippet.Snippet{
-						ID:          gistID,
+						Id:          gistID,
 						Filename:    string(filename),
 						Description: *gist.Description,
 						Content:     fileContent,

@@ -4,21 +4,22 @@ import (
 	"errors"
 	"testing"
 
+	"github.com/golang/protobuf/proto"
 	"github.com/mike182uk/snpt/internal/platform/storage"
 	"github.com/stretchr/testify/assert"
 )
 
 var (
 	snpt = Snippet{
-		ID:          "foo",
+		Id:          "foo",
 		Filename:    "bar",
 		Description: "baz",
 		Content:     "qux",
 	}
-	snptJSON  = `{"id":"foo","filename":"bar","description":"baz","content":"qux"}`
-	snpts     = Snippets{snpt}
-	snptsJSON = map[string]string{
-		snpt.ID: snptJSON,
+	snptSerialized, _ = proto.Marshal(&snpt)
+	snpts             = Snippets{snpt}
+	snptsMap          = map[string]string{
+		snpt.Id: string(snptSerialized),
 	}
 )
 
@@ -41,14 +42,15 @@ func TestGet(t *testing.T) {
 	store := &Store{storage: storage}
 	key := "foo"
 
-	storage.On("Get", "Snippets", key).Return(snptJSON, nil)
+	storage.On("Get", "Snippets", key).Return(string(snptSerialized), nil)
 
 	result, err := store.Get(key)
 
 	storage.AssertExpectations(t)
 
 	assert.Nil(t, err)
-	assert.Equal(t, snpt, result)
+	assert.IsType(t, Snippet{}, result)
+	assert.Equal(t, snpt.GetId(), result.GetId())
 }
 
 func TestGetStorageErr(t *testing.T) {
@@ -70,7 +72,7 @@ func TestGetAll(t *testing.T) {
 	storage := &storage.TestStore{}
 	store := &Store{storage: storage}
 
-	storage.On("GetAll", "Snippets").Return(snptsJSON, nil)
+	storage.On("GetAll", "Snippets").Return(snptsMap, nil)
 
 	result, err := store.GetAll()
 
@@ -94,14 +96,14 @@ func TestGetAllStorageErr(t *testing.T) {
 	assert.Equal(t, getAllErr, err)
 }
 
-func TestGetAllDecodingErr(t *testing.T) {
+func TestGetAllUnserializeErr(t *testing.T) {
 	storage := &storage.TestStore{}
 	store := &Store{storage: storage}
-	invalidSnptsJSON := map[string]string{
+	invalidSnptsMap := map[string]string{
 		"foo": "bar",
 	}
 
-	storage.On("GetAll", "Snippets").Return(invalidSnptsJSON, nil)
+	storage.On("GetAll", "Snippets").Return(invalidSnptsMap, nil)
 
 	_, err := store.GetAll()
 
@@ -114,7 +116,7 @@ func TestPut(t *testing.T) {
 	storage := &storage.TestStore{}
 	store := &Store{storage: storage}
 
-	storage.On("Put", "Snippets", snpt.ID, snptJSON).Return(nil)
+	storage.On("Put", "Snippets", snpt.GetId(), string(snptSerialized)).Return(nil)
 
 	err := store.Put(snpt)
 

@@ -29,7 +29,7 @@ Snpt will parse anything in the square brackets that appears at the end of the s
 		RunE: func(cmd *cobra.Command, args []string) error {
 			snpt, err := cliHelper.ResolveSnippet(args, hasInput, in, snptStore)
 
-			if err != nil || snpt.ID == "" {
+			if err != nil || snpt.GetId() == "" {
 				return errors.New("Failed to retrieve snippet from database")
 			}
 

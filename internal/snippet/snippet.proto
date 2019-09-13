@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package snippet;
+
+message Snippet {
+	string id = 1;
+	string filename = 2;
+	string description = 3;
+	string content = 4;
+}

@@ -11,6 +11,8 @@ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/fatih/color v1.5.0 h1:vBh+kQp8lg9XPr56u1CPrWjFXtdphMoGWVHr9/1c+A0=
 github.com/fatih/color v1.5.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/golang/protobuf v0.0.0-20170808021621-1909bc2f63dc/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
+github.com/golang/protobuf v1.3.2 h1:6nsPYzhq5kReh6QImI3k5qWzO4PEbvbIW2cwSfR/6xs=
+github.com/golang/protobuf v1.3.2/go.mod h1:6lQm79b+lXiMfvg/cZm0SGofjICqVBUtrP5yJMmIC1U=
 github.com/google/go-github v0.0.0-20170811182457-6afafa88c26e h1:4ys/D3hC25hpI/ggG690M+pHuO8yui+ctfMawwBc2gU=
 github.com/google/go-github v0.0.0-20170811182457-6afafa88c26e/go.mod h1:zLgOLi98H3fifZn+44m+umXrS52loVEgC2AApnigrVQ=
 github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135 h1:zLTLjkaOFEFIOxY5BWLFLwh+cL8vOBW4XJ2aqLE/Tf0=
