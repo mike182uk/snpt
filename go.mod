@@ -6,7 +6,7 @@ require (
 	github.com/ararog/timeago v0.0.0-20160324182854-518814407569
 	github.com/atotto/clipboard v0.0.0-20160219034421-bb272b845f11
 	github.com/briandowns/spinner v0.0.0-20170614154858-48dbb65d7bd5
-	github.com/davecgh/go-spew v1.1.0 // indirect
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/elazarl/goproxy v0.0.0-20190911111923-ecfe977594f1 // indirect
 	github.com/fatih/color v1.5.0
 	github.com/golang/protobuf v1.3.2
@@ -25,8 +25,8 @@ require (
 	github.com/spf13/afero v0.0.0-20170217164146-9be650865eab
 	github.com/spf13/cobra v0.0.0-20170731170427-b26b538f6930
 	github.com/spf13/pflag v1.0.0 // indirect
-	github.com/stretchr/objx v0.0.0-20150928122152-1a9d0bb9f541 // indirect
-	github.com/stretchr/testify v1.1.4
+	github.com/stretchr/objx v0.1.1 // indirect
+	github.com/stretchr/testify v1.2.2
 	go.etcd.io/bbolt v1.3.3
 	golang.org/x/oauth2 v0.0.0-20170807180024-9a379c6b3e95
 	google.golang.org/appengine v1.0.0 // indirect

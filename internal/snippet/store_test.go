@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/mike182uk/snpt/internal/platform/storage"
+	"github.com/mike182uk/snpt/mocks"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -24,7 +24,7 @@ var (
 )
 
 func TestNewStore(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 
 	storage.On("InitBucket", "Snippets").Return(nil)
 
@@ -38,7 +38,7 @@ func TestNewStore(t *testing.T) {
 }
 
 func TestGet(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	store := &Store{storage: storage}
 	key := "foo"
 
@@ -54,7 +54,7 @@ func TestGet(t *testing.T) {
 }
 
 func TestGetStorageErr(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	store := &Store{storage: storage}
 	key := "foo"
 	getErr := errors.New("Get Error")
@@ -69,7 +69,7 @@ func TestGetStorageErr(t *testing.T) {
 }
 
 func TestGetAll(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	store := &Store{storage: storage}
 
 	storage.On("GetAll", "Snippets").Return(snptsMap, nil)
@@ -83,7 +83,7 @@ func TestGetAll(t *testing.T) {
 }
 
 func TestGetAllStorageErr(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	store := &Store{storage: storage}
 	getAllErr := errors.New("GetAll Error")
 
@@ -97,7 +97,7 @@ func TestGetAllStorageErr(t *testing.T) {
 }
 
 func TestGetAllUnserializeErr(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	store := &Store{storage: storage}
 	invalidSnptsMap := map[string]string{
 		"foo": "bar",
@@ -113,7 +113,7 @@ func TestGetAllUnserializeErr(t *testing.T) {
 }
 
 func TestPut(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	store := &Store{storage: storage}
 
 	storage.On("Put", "Snippets", snpt.GetId(), string(snptSerialized)).Return(nil)
@@ -126,7 +126,7 @@ func TestPut(t *testing.T) {
 }
 
 func TestDeleteAll(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	store := &Store{storage: storage}
 
 	storage.On("DeleteAll", "Snippets").Return(nil)

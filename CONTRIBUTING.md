@@ -40,13 +40,19 @@ make test
 make build
 ```
 
-## Compile the protocol buffers
+## Compiling the protocol buffers
 
 ```bash
 make proto
 ```
 
 ⚠️ You will need to manually install the [Protobuf Runtime](https://github.com/protocolbuffers/protobuf#protobuf-runtime-installation) before you can compile the protocol buffers.
+
+## Generating mocks
+
+```bash
+make mocks
+```
 
 ## Notes
 

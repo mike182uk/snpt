@@ -19,6 +19,10 @@ lint: ## Lint the soruce files
 proto: ## Compile protocol buffers
 	protoc --go_out=. internal/snippet/snippet.proto
 
+.PHONY: mocks
+mocks: ## Generate mocks
+	mockery -name=BucketKeyValueStore -recursive=true
+
 .PHONY: build
 build: ## Build the project for the current architecture
 	GO111MODULE=on go build -o $(BUILD_DIR)/$(BIN) $(ENTRYPOINT)
@@ -44,7 +48,8 @@ install-tools: ## Install tools required by the project
 	GO111MODULE=off \
 	go get -u github.com/mitchellh/gox \
 		github.com/mattn/goveralls \
-		github.com/golangci/golangci-lint/cmd/golangci-lint
+		github.com/golangci/golangci-lint/cmd/golangci-lint \
+		github.com/vektra/mockery/.../
 
 .PHONY: fmt
 fmt: ## Format the soruce files

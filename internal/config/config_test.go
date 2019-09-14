@@ -4,12 +4,12 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/mike182uk/snpt/internal/platform/storage"
+	"github.com/mike182uk/snpt/mocks"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestNew(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 
 	storage.On("InitBucket", "Config").Return(nil)
 
@@ -22,7 +22,7 @@ func TestNew(t *testing.T) {
 }
 
 func TestGet(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	config := &Config{storage: storage}
 	key := "foo"
 	value := "bar"
@@ -38,7 +38,7 @@ func TestGet(t *testing.T) {
 }
 
 func TestGetStorageErr(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	config := &Config{storage: storage}
 	key := "foo"
 	getErr := errors.New("Get Error")
@@ -53,7 +53,7 @@ func TestGetStorageErr(t *testing.T) {
 }
 
 func TestSet(t *testing.T) {
-	storage := &storage.TestStore{}
+	storage := &mocks.BucketKeyValueStore{}
 	config := &Config{storage: storage}
 	key := "foo"
 	value := "bar"
