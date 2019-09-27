@@ -11,7 +11,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// New returns a new instance of the copy command
+// New returns a new copy command
 func New(out io.Writer, in io.Reader, hasInput bool, snptStore *snippet.Store) *cobra.Command {
 	return &cobra.Command{
 		Use:     "copy [snippet ID]",

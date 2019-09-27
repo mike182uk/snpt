@@ -28,18 +28,17 @@ func TestNewStore(t *testing.T) {
 
 	storage.On("InitBucket", "Snippets").Return(nil)
 
-	expected := &Store{}
 	result, err := NewStore(storage)
 
 	storage.AssertExpectations(t)
 
-	assert.IsType(t, expected, result)
+	assert.IsType(t, &Store{}, result)
 	assert.Nil(t, err)
 }
 
 func TestGet(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	store := &Store{storage: storage}
+	store := Store{storage}
 	key := "foo"
 
 	storage.On("Get", "Snippets", key).Return(string(snptSerialized), nil)
@@ -55,7 +54,7 @@ func TestGet(t *testing.T) {
 
 func TestGetStorageErr(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	store := &Store{storage: storage}
+	store := Store{storage}
 	key := "foo"
 	getErr := errors.New("Get Error")
 
@@ -70,7 +69,7 @@ func TestGetStorageErr(t *testing.T) {
 
 func TestGetAll(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	store := &Store{storage: storage}
+	store := Store{storage}
 
 	storage.On("GetAll", "Snippets").Return(snptsMap, nil)
 
@@ -84,7 +83,7 @@ func TestGetAll(t *testing.T) {
 
 func TestGetAllStorageErr(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	store := &Store{storage: storage}
+	store := Store{storage}
 	getAllErr := errors.New("GetAll Error")
 
 	storage.On("GetAll", "Snippets").Return(map[string]string{}, getAllErr)
@@ -98,7 +97,7 @@ func TestGetAllStorageErr(t *testing.T) {
 
 func TestGetAllUnserializeErr(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	store := &Store{storage: storage}
+	store := Store{storage}
 	invalidSnptsMap := map[string]string{
 		"foo": "bar",
 	}
@@ -114,7 +113,7 @@ func TestGetAllUnserializeErr(t *testing.T) {
 
 func TestPut(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	store := &Store{storage: storage}
+	store := Store{storage}
 
 	storage.On("Put", "Snippets", snpt.GetId(), string(snptSerialized)).Return(nil)
 
@@ -127,7 +126,7 @@ func TestPut(t *testing.T) {
 
 func TestDeleteAll(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	store := &Store{storage: storage}
+	store := Store{storage}
 
 	storage.On("DeleteAll", "Snippets").Return(nil)
 

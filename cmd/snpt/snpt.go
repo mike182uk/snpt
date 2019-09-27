@@ -13,6 +13,7 @@ import (
 	versionCmd "github.com/mike182uk/snpt/cmd/snpt/command/version"
 	writeCmd "github.com/mike182uk/snpt/cmd/snpt/command/write"
 	cliHelper "github.com/mike182uk/snpt/cmd/snpt/helper/cli"
+
 	"github.com/mike182uk/snpt/internal/config"
 	"github.com/mike182uk/snpt/internal/platform/storage"
 	"github.com/mike182uk/snpt/internal/snippet"
@@ -20,11 +21,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const appDir = ".snpt"
-const dbName = "snpt.db"
+const (
+	appDir = ".snpt"
+	dbName = "snpt.db"
+)
 
 func main() {
-	rootCmd := &cobra.Command{
+	rootCmd := cobra.Command{
 		Use:           "snpt",
 		SilenceErrors: true,
 		SilenceUsage:  true,
@@ -69,13 +72,15 @@ func main() {
 	}
 
 	// register commands
-	rootCmd.AddCommand(copyCmd.New(out, in, hasInput, snptStore))
-	rootCmd.AddCommand(listCmd.New(out, snptStore))
-	rootCmd.AddCommand(printCmd.New(out, in, hasInput, snptStore))
-	rootCmd.AddCommand(syncCmd.New(out, config, snptStore))
-	rootCmd.AddCommand(tokenCmd.New(out, config))
-	rootCmd.AddCommand(versionCmd.New(out))
-	rootCmd.AddCommand(writeCmd.New(out, in, hasInput, snptStore))
+	rootCmd.AddCommand(
+		copyCmd.New(out, in, hasInput, snptStore),
+		listCmd.New(out, snptStore),
+		printCmd.New(out, in, hasInput, snptStore),
+		syncCmd.New(out, config, snptStore),
+		tokenCmd.New(out, config),
+		versionCmd.New(out),
+		writeCmd.New(out, in, hasInput, snptStore),
+	)
 
 	// run the app
 	if err := rootCmd.Execute(); err != nil {

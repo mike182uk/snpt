@@ -9,7 +9,7 @@ import (
 
 const version = "3.0.0"
 
-// New returns a new instance of the version command
+// New returns a new version command
 func New(out io.Writer) *cobra.Command {
 	return &cobra.Command{
 		Use:   "version",

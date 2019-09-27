@@ -2,28 +2,30 @@ package config
 
 import "github.com/mike182uk/snpt/internal/platform/storage"
 
-// TokenKey is the key of the github access token config value
-const TokenKey = "gh-access-token"
+const (
+	// TokenKey is the key of the github access token config value
+	TokenKey = "gh-access-token"
 
-// LastSyncKey is the key of the last sync timestamp config value
-const LastSyncKey = "last-sync"
+	// LastSyncKey is the key of the last sync timestamp config value
+	LastSyncKey = "last-sync"
+
+	bucketName = "Config"
+)
 
 // Config stores and retrieves config values from the data store
 type Config struct {
 	storage storage.BucketKeyValueStore
 }
 
-const bucketName = "Config"
-
-// New returns a new Config instance
+// New returns a new Config
 func New(storage storage.BucketKeyValueStore) (*Config, error) {
-	config := &Config{
-		storage: storage,
+	config := Config{
+		storage,
 	}
 
 	err := storage.InitBucket(bucketName)
 
-	return config, err
+	return &config, err
 }
 
 // Get retieves a config value
@@ -38,6 +40,6 @@ func (c *Config) Get(id string) (string, error) {
 }
 
 // Set sets a config value
-func (c *Config) Set(key string, val string) error {
-	return c.storage.Put(bucketName, key, val)
+func (c *Config) Set(k string, v string) error {
+	return c.storage.Put(bucketName, k, v)
 }

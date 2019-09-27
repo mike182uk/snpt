@@ -13,15 +13,15 @@ type Store struct {
 	storage storage.BucketKeyValueStore
 }
 
-// NewStore returns a new Store instance
+// NewStore returns a new Store
 func NewStore(storage storage.BucketKeyValueStore) (*Store, error) {
-	store := &Store{
-		storage: storage,
+	store := Store{
+		storage,
 	}
 
 	err := storage.InitBucket(bucketName)
 
-	return store, err
+	return &store, err
 }
 
 // Get retrieves a snippet from the store

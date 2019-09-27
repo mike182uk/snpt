@@ -11,7 +11,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// New returns a new instance of the list command
+// New returns a new list command
 func New(out io.Writer, snptStore *snippet.Store) *cobra.Command {
 	return &cobra.Command{
 		Use:     "list",

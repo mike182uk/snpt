@@ -15,7 +15,7 @@ type Retriever struct {
 	httpClient *gorequest.SuperAgent
 }
 
-// NewRetriever returns a new Retriever instance
+// NewRetriever returns a new Retriever
 func NewRetriever(t string) *Retriever {
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: t},

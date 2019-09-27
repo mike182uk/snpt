@@ -23,7 +23,7 @@ func TestNew(t *testing.T) {
 
 func TestGet(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	config := &Config{storage: storage}
+	config := Config{storage}
 	key := "foo"
 	value := "bar"
 
@@ -39,7 +39,7 @@ func TestGet(t *testing.T) {
 
 func TestGetStorageErr(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	config := &Config{storage: storage}
+	config := Config{storage}
 	key := "foo"
 	getErr := errors.New("Get Error")
 
@@ -54,7 +54,7 @@ func TestGetStorageErr(t *testing.T) {
 
 func TestSet(t *testing.T) {
 	storage := &mocks.BucketKeyValueStore{}
-	config := &Config{storage: storage}
+	config := Config{storage}
 	key := "foo"
 	value := "bar"
 

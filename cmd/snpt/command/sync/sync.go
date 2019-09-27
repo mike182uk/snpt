@@ -15,7 +15,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// New returns a new instance of the sync command
+// New returns a new sync command
 func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Command {
 	return &cobra.Command{
 		Use:   "sync",

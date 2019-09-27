@@ -11,7 +11,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// New returns a new instance of the write command
+// New returns a new write command
 func New(out io.Writer, in io.Reader, hasInput bool, snptStore *snippet.Store) *cobra.Command {
 	return &cobra.Command{
 		Use:   "write [snippet ID]",

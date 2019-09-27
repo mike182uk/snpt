@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// New returns a new instance of the Print command
+// New returns a new print command
 func New(out io.Writer, in io.Reader, hasInput bool, snptStore *snippet.Store) *cobra.Command {
 	return &cobra.Command{
 		Use:   "print [snippet ID]",

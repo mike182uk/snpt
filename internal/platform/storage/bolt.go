@@ -12,7 +12,7 @@ type BoltStore struct {
 	path   string
 }
 
-// NewBoltStore returns a new BoltStore instance
+// NewBoltStore returns a new BoltStore
 func NewBoltStore(path string) (*BoltStore, error) {
 	boltDB, err := bolt.Open(path, 0644, nil)
 
@@ -20,12 +20,12 @@ func NewBoltStore(path string) (*BoltStore, error) {
 		return nil, err
 	}
 
-	bs := &BoltStore{
+	bs := BoltStore{
 		boltDB: boltDB,
 		path:   path,
 	}
 
-	return bs, nil
+	return &bs, nil
 }
 
 // InitBucket initialises a bucket
