@@ -80,6 +80,10 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 		if snpt.GetId() == snptID {
 			return snpt, nil
 		}
+
+		if snpt.GetFilename() == snptID {
+			return snpt, nil
+		}
 	}
 
 	// return an empty snippet if no snippet was found

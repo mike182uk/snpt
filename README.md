@@ -55,30 +55,6 @@ The sync command will download all of your public and private gists and store th
 
 You can prevent specific gists from being synced by placing `[snpt:ignore]` anywhere in the description of the gist.
 
-### <a id="cp"></a>Copying a snippet to the clipboard
-
-```
-snpt cp [snippetID]
-```
-
-`snippetID` is an optional parameter. If a `snippetID` is not supplied a prompt will be displayed allowing you to choose a snippet to copy to the clipboard.
-
-### <a id="write"></a>Creating a file from a snippet
-
-```
-snpt write [snippetID]
-```
-
-`snippetID` is an optional parameter. If a `snippetID` is not supplied a prompt will be displayed allowing you to choose a snippet to create a file from. The created file will be named after the name of the gist file.
-
-### <a id="print"></a>Printing a snippet to the screen
-
-```
-snpt print [snippetID]
-```
-
-`snippetID` is an optional parameter. If a `snippetID` is not supplied a prompt will be displayed allowing you to choose a snippet to print to the screen.
-
 ### <a id="list"></a>Listing available snippets
 
 ```
@@ -90,6 +66,36 @@ This can be useful for searching for a specific snippet:
 ```bash
 snpt ls | grep <query>
 ```
+
+### <a id="cp"></a>Copying a snippet to the clipboard
+
+```
+snpt cp [snippetID|snippetName]
+```
+
+If a `snippetID` or `snippetName` is not supplied a prompt will be displayed allowing you to choose a snippet to copy to the clipboard.
+
+If using `snippetName` to search for a snippet, and there are multiple snippets with the same name, the first snippet matching the name will be used. If you have multiple snippets with the same name it is best to search using `snippetId`.
+
+### <a id="write"></a>Creating a file from a snippet
+
+```
+snpt write [snippetID|snippetName]
+```
+
+If a `snippetID` or `snippetName` is not supplied a prompt will be displayed allowing you to choose a snippet to create a file from. The created file will be named after the name of the gist file.
+
+If using `snippetName` to search for a snippet, and there are multiple snippets with the same name, the first snippet matching the name will be used. If you have multiple snippets with the same name it is best to search using `snippetId`.
+
+### <a id="print"></a>Printing a snippet to the screen
+
+```
+snpt print [snippetID|snippetName]
+```
+
+If a `snippetID` or `snippetName` is not supplied a prompt will be displayed allowing you to choose a snippet to print to the screen.
+
+If using `snippetName` to search for a snippet, and there are multiple snippets with the same name, the first snippet matching the name will be used. If you have multiple snippets with the same name it is best to search using `snippetId`.
 
 ### <a id="token"></a>Setting a new GitHub access token
 
