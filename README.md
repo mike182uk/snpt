@@ -53,6 +53,8 @@ If this is the first time you have synced your gists you will be prompted to inp
 
 The sync command will download all of your public and private gists and store them locally for fast retrieval by Snpt.
 
+You can prevent specific gists from being synced by placing `[snpt:ignore]` anywhere in the description of the gist.
+
 ### <a id="cp"></a>Copying a snippet to the clipboard
 
 ```

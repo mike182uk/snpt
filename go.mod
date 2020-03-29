@@ -14,12 +14,8 @@ require (
 	github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135 // indirect
 	github.com/howeyc/gopass v0.0.0-20170109162249-bf9dde6d0d2c // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
-	github.com/mattn/go-colorable v0.0.9 // indirect
-	github.com/mattn/go-isatty v0.0.2 // indirect
-	github.com/moul/http2curl v0.0.0-20161031194548-4e24498b31db // indirect
 	github.com/parnurzeal/gorequest v0.2.16
 	github.com/pkg/errors v0.8.0 // indirect
-	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/segmentio/go-prompt v0.0.0-20161017233205-f0d19b6901ad
 	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337 // indirect
 	github.com/spf13/afero v0.0.0-20170217164146-9be650865eab
@@ -30,4 +26,5 @@ require (
 	go.etcd.io/bbolt v1.3.4
 	golang.org/x/oauth2 v0.0.0-20170807180024-9a379c6b3e95
 	google.golang.org/appengine v1.0.0 // indirect
+	moul.io/http2curl v1.0.0 // indirect
 )

@@ -2,6 +2,7 @@
 
 # 3.0.0
 
+- Add ignore gist functionality (`[snpt:ignore]`)
 - Use [Protocol Buffers](https://developers.google.com/protocol-buffers/) to serialize data
 
 # 2.1.0

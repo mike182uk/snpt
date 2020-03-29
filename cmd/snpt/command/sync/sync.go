@@ -57,8 +57,13 @@ func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Comma
 			}
 
 			gistCount := 0
+			ignoreRe := regexp.MustCompile(`\[snpt:ignore\]`)
 
 			for _, gist := range gists {
+				if ignoreRe.FindStringIndex(*gist.Description) != nil {
+					continue
+				}
+
 				for filename, file := range gist.Files {
 					fileContent, err := gistRetriever.RetrieveGistFileContent(&file)
 
