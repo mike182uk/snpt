@@ -1,6 +1,8 @@
 package sync
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"errors"
 	"io"
 	"regexp"
@@ -73,13 +75,16 @@ func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Comma
 						continue
 					}
 
-					gistID := getGistIDFromRawURL(*file.RawURL)
+					h := md5.New()
+					_, err = h.Write([]byte(*file.RawURL))
 
-					if gistID == "" {
-						printProgressError(spinner, out, "Failed to extract gist ID from URL: %s", *file.RawURL)
+					if err != nil {
+						printProgressError(spinner, out, "Failed to generate ID for gist: %s", *file.RawURL)
 
 						continue
 					}
+
+					gistID := hex.EncodeToString(h.Sum(nil))
 
 					snpt := snippet.Snippet{
 						Id:          gistID,
@@ -118,17 +123,6 @@ func getSpinner(out io.Writer, suffix string) *spinner.Spinner {
 	s.Writer = out
 
 	return s
-}
-
-func getGistIDFromRawURL(url string) string {
-	re := regexp.MustCompile("/raw/(.*)/")
-	m := re.FindStringSubmatch(url)
-
-	if len(m) == 2 {
-		return m[1]
-	}
-
-	return ""
 }
 
 func getLastSync(c *config.Config) (string, error) {

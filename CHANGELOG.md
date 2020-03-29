@@ -2,6 +2,7 @@
 
 # 3.0.0
 
+- Fix issue where 2 gists with identical content would be assigned the same ID
 - Add ignore gist functionality (`[snpt:ignore]`)
 - Use [Protocol Buffers](https://developers.google.com/protocol-buffers/) to serialize data
 
