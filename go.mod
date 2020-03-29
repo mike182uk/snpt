@@ -27,7 +27,7 @@ require (
 	github.com/spf13/pflag v1.0.0 // indirect
 	github.com/stretchr/objx v0.1.1 // indirect
 	github.com/stretchr/testify v1.5.1
-	go.etcd.io/bbolt v1.3.3
+	go.etcd.io/bbolt v1.3.4
 	golang.org/x/oauth2 v0.0.0-20170807180024-9a379c6b3e95
 	google.golang.org/appengine v1.0.0 // indirect
 )
