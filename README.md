@@ -39,6 +39,13 @@ Save a snippet as a gist in GitHub, retrieve the snippet on the command line.
 
 Download the binary compatible with your system from  [here](https://github.com/mike182uk/snpt/releases).
 
+If you are using macOS, you can also use `Homebrew` to install snpt:
+
+```bash
+brew tap mike182uk/tap
+brew install mike182uk/tap/snpt
+```
+
 ## <a id="usage"></a>Usage
 
 ### <a id="syncing"></a>Syncing your snippets
