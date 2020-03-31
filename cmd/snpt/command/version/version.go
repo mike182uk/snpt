@@ -7,10 +7,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const version = "3.0.0"
-
 // New returns a new version command
-func New(out io.Writer) *cobra.Command {
+func New(out io.Writer, version string) *cobra.Command {
 	return &cobra.Command{
 		Use:   "version",
 		Short: "Print the version number of snpt",

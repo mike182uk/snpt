@@ -23,6 +23,7 @@ import (
 
 const (
 	appDir = ".snpt"
+	appVersion = "3.0.0"
 	dbName = "snpt.db"
 )
 
@@ -78,7 +79,7 @@ func main() {
 		printCmd.New(out, in, hasInput, snptStore),
 		syncCmd.New(out, config, snptStore),
 		tokenCmd.New(out, config),
-		versionCmd.New(out),
+		versionCmd.New(out, appVersion),
 		writeCmd.New(out, in, hasInput, snptStore),
 	)
 
