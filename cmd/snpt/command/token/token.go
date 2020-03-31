@@ -18,7 +18,7 @@ func New(out io.Writer, c *config.Config) *cobra.Command {
 		Long: `
 Set your GitHub access token.
 
-You will be prompted to supply your GitHub access token. This will be saved in snpt's database for use when retrieving your Gists from GitHub.`,
+You will be prompted to supply your GitHub access token. This will be saved in Snpt's database for use when retrieving your Gists from GitHub.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			token := prompt.PasswordMasked("Enter your GitHub access token")
 
