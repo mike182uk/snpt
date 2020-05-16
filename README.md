@@ -1,7 +1,7 @@
 # <img src="icon.png" height="28"> Snpt
 
 [![Version](https://img.shields.io/github/release/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
-[![Build Status](https://img.shields.io/travis/mike182uk/snpt.svg?style=flat-square)](http://travis-ci.org/mike182uk/snpt)
+[![Build Status](https://img.shields.io/github/workflow/status/mike182uk/snpt/CI/master?style=flat-square)](https://github.com/mike182uk/snpt/actions?query=workflow%3ACI)
 [![Coveralls](https://img.shields.io/coveralls/mike182uk/snpt/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/snpt)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mike182uk/snpt)](https://goreportcard.com/report/github.com/mike182uk/snpt)
 [![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt/total.svg?style=flat-square)](https://github.com/mike182uk/snpt)
@@ -18,17 +18,17 @@ Save a snippet as a gist in GitHub, retrieve the snippet on the command line.
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Syncing your snippets](#sync)
-  - [Copying a snippet to the clipboard](#cp)
-  - [Creating a file from a snippet](#write)
-  - [Printing a snippet to the screen](#print)
-  - [Listing available snippets](#list)
-  - [Setting a new GitHub access token](#token)
-  - [Viewing help for a command](#help)
-  - [Improve your workflow with fuzzy search](#fuzzy-search)
-  - [Alfred workflow](#alfred-workflow)
+  - [Syncing your snippets](#syncing-your-snippets)
+  - [Listing available snippets](#listing-available-snippets)
+  - [Copying a snippet to the clipboard](#copying-a-snippet-to-the-clipboard)
+  - [Creating a file from a snippet](#creating-a-file-from-a-snippet)
+  - [Printing a snippet to the screen](#printing-a-snippet-to-the-screen)
+  - [Setting a new GitHub access token](#setting-a-new-github-access-token)
+  - [Viewing help for a command](#viewing-help-for-a-command)
+  - [Improve your workflow with fuzzy search](#improve-your-workflow-with-fuzzy-search)
+  - [Alfred Workflow](#alfred-workflow)
 - [Bash completion](#bash-completion)
-- [Uninstalling Snpt](#uninstall)
+- [Uninstalling Snpt](#uninstalling-snpt)
 
 ## <a id="prerequisites"></a>Prerequisites
 

@@ -8,12 +8,11 @@ test: ## Run the tests
 
 .PHONY: coverage
 coverage: ## Generate test coverage
-	GO111MODULE=on go test -v -covermode=count -coverprofile=coverage.out ./internal/...
-	goveralls -coverprofile=coverage.out -service=travis-ci
+	GO111MODULE=on go test -race -covermode atomic -coverprofile=coverage.out ./internal/...
 
 .PHONY: lint
 lint: ## Lint the soruce files
-	GO111MODULE=on golangci-lint run
+	golangci-lint run
 
 .PHONY: proto
 proto: ## Compile protocol buffers
@@ -45,11 +44,8 @@ install: install-tools ## Install project dependencies (including any required t
 
 .PHONY: install-tools
 install-tools: ## Install tools required by the project
-	GO111MODULE=off \
-	go get -u github.com/mitchellh/gox \
-		github.com/mattn/goveralls \
-		github.com/golangci/golangci-lint/cmd/golangci-lint \
-		github.com/vektra/mockery/.../
+	GO111MODULE=off go get -u github.com/mitchellh/gox github.com/vektra/mockery/.../
+	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.27.0; fi
 
 .PHONY: fmt
 fmt: ## Format the soruce files
