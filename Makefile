@@ -28,7 +28,7 @@ build: ## Build the project for the current architecture
 
 .PHONY: build-all
 build-all: ## Build the project for all supported architectures
-	GO111MODULE=on gox -output "$(BUILD_DIR)/$(BIN)-$(TRAVIS_TAG)-{{.OS}}-{{.Arch}}/$(BIN)" -os="darwin windows linux" -arch="amd64" $(ENTRYPOINT)
+	GO111MODULE=on gox -output "$(BUILD_DIR)/$(BIN)-$(TAG)-{{.OS}}-{{.Arch}}/$(BIN)" -os="darwin windows linux" -arch="amd64" $(ENTRYPOINT)
 
 .PHONY: package
 package: ## Package the any built binaries ready for distribution
