@@ -101,7 +101,7 @@ func TestRetrieveGistFileContentErr(t *testing.T) {
 func startServer() *url.URL {
 	mux = http.NewServeMux()
 	server = httptest.NewServer(mux)
-	url, err := url.Parse(server.URL)
+	url, err := url.Parse(server.URL + "/")
 
 	if err != nil {
 		panic(err)

@@ -20,7 +20,7 @@ proto: ## Compile protocol buffers
 
 .PHONY: mocks
 mocks: ## Generate mocks
-	mockery -name=BucketKeyValueStore -recursive=true
+	mockery --name=BucketKeyValueStore --recursive=true
 
 .PHONY: build
 build: ## Build the project for the current architecture

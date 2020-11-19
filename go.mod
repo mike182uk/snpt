@@ -3,28 +3,22 @@ module github.com/mike182uk/snpt
 go 1.15
 
 require (
-	github.com/ararog/timeago v0.0.0-20160324182854-518814407569
-	github.com/atotto/clipboard v0.0.0-20160219034421-bb272b845f11
-	github.com/briandowns/spinner v0.0.0-20170614154858-48dbb65d7bd5
-	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/elazarl/goproxy v0.0.0-20190911111923-ecfe977594f1 // indirect
-	github.com/fatih/color v1.9.0
-	github.com/golang/protobuf v1.3.5
-	github.com/google/go-github v0.0.0-20170811182457-6afafa88c26e
-	github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135 // indirect
-	github.com/howeyc/gopass v0.0.0-20170109162249-bf9dde6d0d2c // indirect
-	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/ararog/timeago v0.0.0-20160328174124-e9969cf18b8d
+	github.com/atotto/clipboard v0.1.2
+	github.com/briandowns/spinner v1.11.1
+	github.com/elazarl/goproxy v0.0.0-20201021153353-00ad82a08272 // indirect
+	github.com/fatih/color v1.10.0
+	github.com/golang/protobuf v1.4.3
+	github.com/google/go-github v17.0.0+incompatible
+	github.com/google/go-querystring v1.0.0 // indirect
+	github.com/howeyc/gopass v0.0.0-20190910152052-7cb4b85ec19c // indirect
 	github.com/parnurzeal/gorequest v0.2.16
-	github.com/pkg/errors v0.8.0 // indirect
 	github.com/segmentio/go-prompt v0.0.0-20161017233205-f0d19b6901ad
-	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337 // indirect
-	github.com/spf13/afero v0.0.0-20170217164146-9be650865eab
-	github.com/spf13/cobra v0.0.0-20170731170427-b26b538f6930
-	github.com/spf13/pflag v1.0.0 // indirect
-	github.com/stretchr/objx v0.1.1 // indirect
+	github.com/spf13/afero v1.4.1
+	github.com/spf13/cobra v1.1.1
+	github.com/stretchr/objx v0.3.0 // indirect
 	github.com/stretchr/testify v1.6.1
 	go.etcd.io/bbolt v1.3.5
-	golang.org/x/oauth2 v0.0.0-20170807180024-9a379c6b3e95
-	google.golang.org/appengine v1.0.0 // indirect
+	golang.org/x/oauth2 v0.0.0-20201109201403-9fd604954f58
 	moul.io/http2curl v1.0.0 // indirect
 )
