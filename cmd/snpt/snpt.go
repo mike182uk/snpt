@@ -22,9 +22,9 @@ import (
 )
 
 const (
-	appDir = ".snpt"
+	appDir     = ".snpt"
 	appVersion = "3.0.0"
-	dbName = "snpt.db"
+	dbName     = "snpt.db"
 )
 
 func main() {
