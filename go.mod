@@ -1,6 +1,6 @@
 module github.com/mike182uk/snpt
 
-go 1.12
+go 1.15
 
 require (
 	github.com/ararog/timeago v0.0.0-20160324182854-518814407569
