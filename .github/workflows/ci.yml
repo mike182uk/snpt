@@ -26,9 +26,9 @@ jobs:
         run: make install
 
       - name: Run linter
-        uses: golangci/golangci-lint-action@v1
+        uses: golangci/golangci-lint-action@v2
         with:
-          version: v1.27
+          version: v1.32
 
       - name: Run tests
         run: make test
