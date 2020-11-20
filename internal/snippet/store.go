@@ -1,8 +1,9 @@
 package snippet
 
 import (
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 
+	"github.com/mike182uk/snpt/internal/pb"
 	"github.com/mike182uk/snpt/internal/platform/storage"
 )
 
@@ -25,7 +26,7 @@ func NewStore(storage storage.BucketKeyValueStore) (*Store, error) {
 }
 
 // Get retrieves a snippet from the store
-func (s *Store) Get(id string) (snpt Snippet, err error) {
+func (s *Store) Get(id string) (snpt pb.Snippet, err error) {
 	b, err := s.storage.Get(bucketName, id)
 
 	if err != nil {
@@ -46,7 +47,7 @@ func (s *Store) GetAll() (snpts Snippets, err error) {
 	}
 
 	for _, b := range bs {
-		var snpt Snippet
+		var snpt pb.Snippet
 
 		err = proto.Unmarshal([]byte(b), &snpt)
 
@@ -54,15 +55,15 @@ func (s *Store) GetAll() (snpts Snippets, err error) {
 			return
 		}
 
-		snpts = append(snpts, snpt)
+		snpts = append(snpts, &snpt)
 	}
 
 	return
 }
 
 // Put stores a snippet in the store
-func (s *Store) Put(snpt Snippet) error {
-	b, err := proto.Marshal(&snpt)
+func (s *Store) Put(snpt *pb.Snippet) error {
+	b, err := proto.Marshal(snpt)
 
 	if err != nil {
 		return err

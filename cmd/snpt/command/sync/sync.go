@@ -12,6 +12,7 @@ import (
 	"github.com/briandowns/spinner"
 	cliHelper "github.com/mike182uk/snpt/cmd/snpt/helper/cli"
 	"github.com/mike182uk/snpt/internal/config"
+	"github.com/mike182uk/snpt/internal/pb"
 	"github.com/mike182uk/snpt/internal/platform/gist"
 	"github.com/mike182uk/snpt/internal/snippet"
 	"github.com/spf13/cobra"
@@ -86,14 +87,14 @@ func New(out io.Writer, c *config.Config, snptStore *snippet.Store) *cobra.Comma
 
 					gistID := hex.EncodeToString(h.Sum(nil))
 
-					snpt := snippet.Snippet{
+					snpt := pb.Snippet{
 						Id:          gistID,
 						Filename:    string(filename),
 						Description: *gist.Description,
 						Content:     fileContent,
 					}
 
-					err = snptStore.Put(snpt)
+					err = snptStore.Put(&snpt)
 
 					if err != nil {
 						printProgressError(spinner, out, "Failed to save snippet: %s to the database", snpt.Filename)

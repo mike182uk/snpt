@@ -4,20 +4,20 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/mike182uk/snpt/internal/pb"
 	"github.com/mike182uk/snpt/mocks"
 	"github.com/stretchr/testify/assert"
+	"google.golang.org/protobuf/proto"
 )
 
 var (
-	snpt = Snippet{
+	snpt = pb.Snippet{
 		Id:          "foo",
 		Filename:    "bar",
 		Description: "baz",
 		Content:     "qux",
 	}
 	snptSerialized, _ = proto.Marshal(&snpt)
-	snpts             = Snippets{snpt}
 	snptsMap          = map[string]string{
 		snpt.Id: string(snptSerialized),
 	}
@@ -48,7 +48,7 @@ func TestGet(t *testing.T) {
 	storage.AssertExpectations(t)
 
 	assert.Nil(t, err)
-	assert.IsType(t, Snippet{}, result)
+	assert.IsType(t, &pb.Snippet{}, &result)
 	assert.Equal(t, snpt.GetId(), result.GetId())
 }
 
@@ -78,7 +78,8 @@ func TestGetAll(t *testing.T) {
 	storage.AssertExpectations(t)
 
 	assert.Nil(t, err)
-	assert.Equal(t, snpts, result)
+	assert.Equal(t, len(result), 1)
+	assert.Equal(t, result[0].GetId(), snpt.GetId())
 }
 
 func TestGetAllStorageErr(t *testing.T) {
@@ -117,7 +118,7 @@ func TestPut(t *testing.T) {
 
 	storage.On("Put", "Snippets", snpt.GetId(), string(snptSerialized)).Return(nil)
 
-	err := store.Put(snpt)
+	err := store.Put(&snpt)
 
 	storage.AssertExpectations(t)
 

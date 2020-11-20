@@ -1,9 +1,13 @@
 package snippet
 
-import "strings"
+import (
+	"strings"
+
+	"github.com/mike182uk/snpt/internal/pb"
+)
 
 // Snippets represents more than 1 snippet
-type Snippets []Snippet
+type Snippets []*pb.Snippet
 
 func (s Snippets) Len() int {
 	return len(s)

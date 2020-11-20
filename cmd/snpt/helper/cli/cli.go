@@ -9,12 +9,13 @@ import (
 	"sort"
 
 	"github.com/fatih/color"
+	"github.com/mike182uk/snpt/internal/pb"
 	"github.com/mike182uk/snpt/internal/snippet"
 	prompt "github.com/segmentio/go-prompt"
 )
 
 // GenerateSnippetDescription generates a snippet description
-func GenerateSnippetDescription(snpt snippet.Snippet) string {
+func GenerateSnippetDescription(snpt *pb.Snippet) string {
 	yellow := color.New(color.FgYellow).SprintFunc()
 	desc := yellow(snpt.Filename)
 
@@ -28,9 +29,9 @@ func GenerateSnippetDescription(snpt snippet.Snippet) string {
 }
 
 // ResolveSnippet resolves a snippet via either a passed argument, standard input or user prompt
-func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snippet.Store) (snippet.Snippet, error) {
+func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snippet.Store) (*pb.Snippet, error) {
 	var (
-		snpt       snippet.Snippet
+		snpt       pb.Snippet
 		snptID     string
 		promptOpts []string
 		snpts      snippet.Snippets
@@ -39,14 +40,14 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 	snpts, err := snptStore.GetAll()
 
 	if err != nil {
-		return snpt, err
+		return &snpt, err
 	}
 
 	sort.Sort(snpts)
 
 	// if there are no snippets, return early
 	if len(snpts) == 0 {
-		return snpt, nil
+		return &snpt, nil
 	}
 
 	// if there is input data, try and read from it
@@ -54,7 +55,7 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 		input, err := ioutil.ReadAll(in)
 
 		if err != nil {
-			return snpt, errors.New("Failed to read from stdin")
+			return &snpt, errors.New("Failed to read from stdin")
 		}
 
 		snptID = extractSnippetID(string(input))
@@ -87,7 +88,7 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 	}
 
 	// return an empty snippet if no snippet was found
-	return snpt, nil
+	return &snpt, nil
 }
 
 func extractSnippetID(s string) string {

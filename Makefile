@@ -16,7 +16,7 @@ lint: ## Lint the soruce files
 
 .PHONY: proto
 proto: ## Compile protocol buffers
-	protoc --go_out=. internal/snippet/snippet.proto
+	protoc --go_out=. internal/pb/snippet.proto
 
 .PHONY: mocks
 mocks: ## Generate mocks
@@ -44,7 +44,7 @@ install: install-tools ## Install project dependencies (including any required t
 
 .PHONY: install-tools
 install-tools: ## Install tools required by the project
-	GO111MODULE=off go get -u github.com/mitchellh/gox github.com/vektra/mockery/.../
+	GO111MODULE=off go get -u github.com/mitchellh/gox github.com/vektra/mockery/.../ google.golang.org/protobuf/cmd/protoc-gen-go
 	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.27.0; fi
 
 .PHONY: fmt
