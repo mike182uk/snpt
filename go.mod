@@ -14,7 +14,7 @@ require (
 	github.com/howeyc/gopass v0.0.0-20190910152052-7cb4b85ec19c // indirect
 	github.com/parnurzeal/gorequest v0.2.16
 	github.com/segmentio/go-prompt v0.0.0-20161017233205-f0d19b6901ad
-	github.com/spf13/afero v1.4.1
+	github.com/spf13/afero v1.5.0
 	github.com/spf13/cobra v1.1.1
 	github.com/stretchr/objx v0.3.0 // indirect
 	github.com/stretchr/testify v1.6.1
