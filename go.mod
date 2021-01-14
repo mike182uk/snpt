@@ -17,7 +17,7 @@ require (
 	github.com/spf13/afero v1.5.1
 	github.com/spf13/cobra v1.1.1
 	github.com/stretchr/objx v0.3.0 // indirect
-	github.com/stretchr/testify v1.6.1
+	github.com/stretchr/testify v1.7.0
 	go.etcd.io/bbolt v1.3.5
 	golang.org/x/oauth2 v0.0.0-20201109201403-9fd604954f58
 	google.golang.org/protobuf v1.25.0
