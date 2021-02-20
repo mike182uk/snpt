@@ -4,11 +4,11 @@ ENTRYPOINT=./cmd/snpt
 
 .PHONY: test
 test: ## Run the tests
-	GO111MODULE=on go test -v ./internal/...
+	go test -v ./internal/...
 
 .PHONY: coverage
 coverage: ## Generate test coverage
-	GO111MODULE=on go test -race -covermode atomic -coverprofile=coverage.out ./internal/...
+	go test -race -covermode atomic -coverprofile=coverage.out ./internal/...
 
 .PHONY: lint
 lint: ## Lint the soruce files
@@ -24,7 +24,7 @@ mocks: ## Generate mocks
 
 .PHONY: build
 build: ## Build the project for the current architecture
-	GO111MODULE=on go build -o $(BUILD_DIR)/$(BIN) $(ENTRYPOINT)
+	go build -o $(BUILD_DIR)/$(BIN) $(ENTRYPOINT)
 
 .PHONY: build-all
 build-all: ## Build the project for all supported architectures
@@ -36,16 +36,16 @@ package: ## Package the any built binaries ready for distribution
 
 .PHONY: clean
 clean: ## Clean the workspace
-	rm -rf $(BUILD_DIR)
+	rm -rf $(BUILD_DIR) coverage.out
 
 .PHONY: install
 install: install-tools ## Install project dependencies (including any required tools)
-	GO111MODULE=on go mod download
+	go mod download
 
 .PHONY: install-tools
 install-tools: ## Install tools required by the project
-	GO111MODULE=off go get -u github.com/mitchellh/gox github.com/vektra/mockery/.../ google.golang.org/protobuf/cmd/protoc-gen-go
-	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.32.2; fi
+	go get -u github.com/mitchellh/gox github.com/vektra/mockery/.../ google.golang.org/protobuf/cmd/protoc-gen-go
+	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.37.1; fi
 
 .PHONY: fmt
 fmt: ## Format the soruce files
