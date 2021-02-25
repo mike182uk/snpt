@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/ararog/timeago v0.0.0-20160328174124-e9969cf18b8d
-	github.com/atotto/clipboard v0.1.2
+	github.com/atotto/clipboard v0.1.4
 	github.com/briandowns/spinner v1.12.0
 	github.com/elazarl/goproxy v0.0.0-20201021153353-00ad82a08272 // indirect
 	github.com/fatih/color v1.10.0
