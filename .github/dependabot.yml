@@ -1,0 +1,13 @@
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "09:00"
+    timezone: Europe/London
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: google.golang.org/protobuf
+    versions:
+    - 1.26.0
