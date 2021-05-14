@@ -7,7 +7,7 @@ require (
 	github.com/atotto/clipboard v0.1.4
 	github.com/briandowns/spinner v1.12.0
 	github.com/elazarl/goproxy v0.0.0-20201021153353-00ad82a08272 // indirect
-	github.com/fatih/color v1.10.0
+	github.com/fatih/color v1.11.0
 	github.com/golang/protobuf v1.5.2
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/google/go-querystring v1.0.0 // indirect
