@@ -45,7 +45,7 @@ install: install-tools ## Install project dependencies (including any required t
 .PHONY: install-tools
 install-tools: ## Install tools required by the project
 	go get -u github.com/mitchellh/gox github.com/vektra/mockery/.../ google.golang.org/protobuf/cmd/protoc-gen-go
-	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.37.1; fi
+	if [ -z "$(CI)" ]; then curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $$(go env GOPATH)/bin v1.42.0; fi
 
 .PHONY: fmt
 fmt: ## Format the soruce files
