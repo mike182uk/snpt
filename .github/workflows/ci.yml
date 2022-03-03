@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3.0.0
 
-      - name: Setup go
-        uses: actions/setup-go@v2
+      - name: Setup Go
+        uses: actions/setup-go@v3.0.0
         with:
           go-version: 1.17
 
@@ -26,9 +26,9 @@ jobs:
         run: make install
 
       - name: Run linter
-        uses: golangci/golangci-lint-action@v2
+        uses: golangci/golangci-lint-action@v3.1.0
         with:
-          version: v1.42.0
+          version: v1.44.2
 
       - name: Run tests
         run: make test

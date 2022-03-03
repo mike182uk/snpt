@@ -22,7 +22,7 @@ You will be prompted to supply your GitHub access token. This will be saved in S
 		RunE: func(cmd *cobra.Command, args []string) error {
 			token := prompt.PasswordMasked("Enter your GitHub access token")
 
-			// TODO: if user enters an empty string, re-prompt them for a token, if they cancel (ctrl + c) do nothing
+			// TODO: If user enters an empty string, re-prompt them for a token, if they cancel (ctrl + c) do nothing
 			if token == "" {
 				cliHelper.PrintError(out, "GitHub access token was not supplied")
 

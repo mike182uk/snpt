@@ -1,4 +1,4 @@
-# <img src="icon.png" height="28"> Snpt
+# <img src="docs/icon.png" height="28"> snpt
 
 [![Version](https://img.shields.io/github/release/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
 [![Build Status](https://img.shields.io/github/workflow/status/mike182uk/snpt/CI/master?style=flat-square)](https://github.com/mike182uk/snpt/actions?query=workflow%3ACI)
@@ -11,7 +11,7 @@ A [gist](https://gist.github.com/) powered CLI snippet retriever.
 
 Save a snippet as a gist in GitHub, retrieve the snippet on the command line.
 
-![](example.gif)
+![](docs/example.gif)
 
 ## Index
 
@@ -28,7 +28,7 @@ Save a snippet as a gist in GitHub, retrieve the snippet on the command line.
   - [Improve your workflow with fuzzy search](#improve-your-workflow-with-fuzzy-search)
   - [Alfred Workflow](#alfred-workflow)
 - [Bash completion](#bash-completion)
-- [Uninstalling Snpt](#uninstalling-snpt)
+- [Uninstalling snpt](#uninstalling-snpt)
 
 ## <a id="prerequisites"></a>Prerequisites
 
@@ -50,7 +50,7 @@ brew install mike182uk/tap/snpt
 
 ### <a id="syncing"></a>Syncing your snippets
 
-Before you can use Snpt you will need to sync your gists:
+Before you can use snpt you will need to sync your gists:
 
 ```bash
 snpt sync
@@ -58,7 +58,7 @@ snpt sync
 
 If this is the first time you have synced your gists you will be prompted to input a GitHub [access token](https://github.com/blog/1509-personal-api-tokens) (you will need create this in your GitHub account). This token should be be created with the `gist` scope enabled.
 
-The sync command will download all of your public and private gists and store them locally for fast retrieval by Snpt.
+The sync command will download all of your public and private gists and store them locally for fast retrieval by snpt.
 
 You can prevent specific gists from being synced by placing `[snpt:ignore]` anywhere in the description of the gist.
 
@@ -122,10 +122,10 @@ snpt sync -h
 
 ### <a id="fuzzy-search"></a>Improve your workflow with fuzzy search
 
-Snpt ❤️ [fzf](https://github.com/junegunn/fzf)
+snpt ❤️ [fzf](https://github.com/junegunn/fzf)
 
 
-![](fzf-example.gif)
+![](docs/fzf-example.gif)
 
 ```bash
 snpt ls | fzf | snpt cp
@@ -138,22 +138,22 @@ alias cs="snpt ls | fzf | snpt cp"    # cs for copy snippet
 alias ws="snpt ls | fzf | snpt write" # ws for write snippet
 ```
 
-`snpt cp` and `snpt write` both accept `stdin` as an input. If `stdin` is detected Snpt will try and extract a snippet ID from it. This is how the above `fzf` usage works.
+`snpt cp` and `snpt write` both accept `stdin` as an input. If `stdin` is detected snpt will try and extract a snippet ID from it. This is how the above `fzf` usage works.
 
 ### <a id="alfred-workflow"></a>Alfred Workflow
 
-The [Snpt Alfred Workflow](https://github.com/mike182uk/snpt-alfred-workflow) provides quick access to your snippets from Alfred.
+[alfred-snpt](https://github.com/mike182uk/alfred-snpt) provides quick access to your snippets from [Alfred](https://www.alfredapp.com/).
 
 ## <a id="bash-completion"></a>Bash completion
 
-If you want bash completion for Snpt, download the file `bash_completion` to your preferred bash completion location (i.e `~/bash_completion/snpt`) and make sure you source this file in your `~/.bashrc` or equivalent:
+If you want bash completion for snpt, download the file `bash_completion` to your preferred bash completion location (i.e `~/bash_completion/snpt`) and make sure you source this file in your `~/.bashrc` or equivalent:
 
 ```bash
 source "$HOME/bash_completion/snpt"
 ```
 
-## <a id="uninstall"></a>Uninstalling Snpt
+## <a id="uninstall"></a>Uninstalling snpt
 
-To uninstall Snpt from your system you will need to manually delete the Snpt binary.
+To uninstall snpt from your system you will need to manually delete the snpt binary.
 
-Snpt's configuration and gist cache is located at `~/.snpt`. You can safely remove this directory and its contents once you have removed the Snpt binary.
+snpt's configuration and gist cache is located at `~/.snpt`. You can safely remove this directory and its contents once you have removed the snpt binary.

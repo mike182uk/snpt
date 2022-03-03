@@ -37,7 +37,7 @@ func main() {
 	in := os.Stdin
 	out := rootCmd.OutOrStdout()
 
-	// setup storage
+	// Setup storage
 	storage, err := initStorage()
 
 	if err != nil {
@@ -46,7 +46,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// setup snippet store
+	// Setup snippet store
 	snptStore, err := snippet.NewStore(storage)
 
 	if err != nil {
@@ -55,7 +55,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// setup config
+	// Setup config
 	config, err := config.New(storage)
 
 	if err != nil {
@@ -64,7 +64,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	// is there any input on stdin?
+	// Is there any input on stdin?
 	hasInput := false
 	stat, _ := in.Stat()
 
@@ -72,7 +72,7 @@ func main() {
 		hasInput = true
 	}
 
-	// register commands
+	// Register commands
 	rootCmd.AddCommand(
 		copyCmd.New(out, in, hasInput, snptStore),
 		listCmd.New(out, snptStore),
@@ -83,7 +83,7 @@ func main() {
 		writeCmd.New(out, in, hasInput, snptStore),
 	)
 
-	// run the app
+	// Run the app
 	if err := rootCmd.Execute(); err != nil {
 		cliHelper.PrintError(out, err.Error())
 

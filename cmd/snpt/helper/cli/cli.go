@@ -45,12 +45,12 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 
 	sort.Sort(snpts)
 
-	// if there are no snippets, return early
+	// If there are no snippets, return early
 	if len(snpts) == 0 {
 		return &snpt, nil
 	}
 
-	// if there is input data, try and read from it
+	// If there is input data, try and read from it
 	if hasInput {
 		input, err := ioutil.ReadAll(in)
 
@@ -60,11 +60,11 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 
 		snptID = extractSnippetID(string(input))
 
-		// if there was a second argument passed on the cli, try and use it as an id
+		// If there was a second argument passed on the cli, try and use it as an id
 	} else if len(args) == 1 {
 		snptID = args[0]
 
-		// if there was no input and the id was not passed as an argument, prompt the
+		// If there was no input and the id was not passed as an argument, prompt the
 		// user to select a snippet
 	} else {
 		for _, snpt := range snpts {
@@ -76,7 +76,7 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 		snptID = extractSnippetID(promptOpts[i])
 	}
 
-	// return found snippet
+	// Return found snippet
 	for _, snpt := range snpts {
 		if snpt.GetId() == snptID {
 			return snpt, nil
@@ -87,7 +87,7 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 		}
 	}
 
-	// return an empty snippet if no snippet was found
+	// Return an empty snippet if no snippet was found
 	return &snpt, nil
 }
 
