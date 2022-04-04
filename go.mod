@@ -14,7 +14,7 @@ require (
 	github.com/parnurzeal/gorequest v0.2.16
 	github.com/segmentio/go-prompt v0.0.0-20161017233205-f0d19b6901ad
 	github.com/spf13/afero v1.8.2
-	github.com/spf13/cobra v1.3.0
+	github.com/spf13/cobra v1.4.0
 	github.com/stretchr/objx v0.3.0 // indirect
 	github.com/stretchr/testify v1.7.1
 	go.etcd.io/bbolt v1.3.6
