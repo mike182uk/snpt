@@ -18,7 +18,7 @@ require (
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/stretchr/testify v1.8.2
 	go.etcd.io/bbolt v1.3.6
-	golang.org/x/oauth2 v0.5.0
+	golang.org/x/oauth2 v0.6.0
 	google.golang.org/protobuf v1.29.0
 	moul.io/http2curl v1.0.0 // indirect
 )
