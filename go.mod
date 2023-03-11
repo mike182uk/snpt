@@ -12,7 +12,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/howeyc/gopass v0.0.0-20190910152052-7cb4b85ec19c // indirect
 	github.com/parnurzeal/gorequest v0.2.16
-	github.com/segmentio/go-prompt v0.0.0-20161017233205-f0d19b6901ad
+	github.com/segmentio/go-prompt v1.2.1-0.20161017233205-f0d19b6901ad
 	github.com/spf13/afero v1.9.3
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/objx v0.5.0 // indirect
