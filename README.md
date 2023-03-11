@@ -1,8 +1,8 @@
 # <img src="docs/icon.png" height="28"> snpt
 
 [![Version](https://img.shields.io/github/release/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/mike182uk/snpt/ci.yml?branch=master&style=flat-square)](https://github.com/mike182uk/snpt/actions/workflows/ci.yml?query=workflow%3ACI)
-[![Coveralls](https://img.shields.io/coveralls/mike182uk/snpt/master.svg?style=flat-square)](https://coveralls.io/r/mike182uk/snpt)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mike182uk/snpt/ci.yml?branch=main&style=flat-square)](https://github.com/mike182uk/snpt/actions/workflows/ci.yml?query=workflow%3ACI)
+[![Coveralls](https://img.shields.io/coveralls/mike182uk/snpt/main.svg?style=flat-square)](https://coveralls.io/r/mike182uk/snpt)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mike182uk/snpt)](https://goreportcard.com/report/github.com/mike182uk/snpt)
 [![Downloads](https://img.shields.io/github/downloads/mike182uk/snpt/total.svg?style=flat-square)](https://github.com/mike182uk/snpt)
 [![License](https://img.shields.io/github/license/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
