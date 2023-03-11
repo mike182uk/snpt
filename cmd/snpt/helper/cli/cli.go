@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"regexp"
 	"sort"
 
@@ -52,7 +51,7 @@ func ResolveSnippet(args []string, hasInput bool, in io.Reader, snptStore *snipp
 
 	// If there is input data, try and read from it
 	if hasInput {
-		input, err := ioutil.ReadAll(in)
+		input, err := io.ReadAll(in)
 
 		if err != nil {
 			return &snpt, errors.New("Failed to read from stdin")

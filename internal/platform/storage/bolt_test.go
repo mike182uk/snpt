@@ -2,9 +2,8 @@ package storage
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
-	"path"
+	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -274,13 +273,13 @@ func TestDeleteAll(t *testing.T) {
 }
 
 func getDBPath() (string, string) {
-	dbDir, err := ioutil.TempDir("", "snpt-test")
+	dbDir, err := os.MkdirTemp("", "snpt-test")
 
 	if err != nil {
 		panic(err)
 	}
 
-	return dbDir, path.Join(dbDir, "snpt.db")
+	return dbDir, filepath.Join(dbDir, "snpt.db")
 }
 
 func getBoltDB(path string) (*bolt.DB, error) {

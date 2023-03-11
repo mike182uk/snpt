@@ -5,11 +5,3 @@ updates:
     directory: /
     schedule:
       interval: monthly
-    ignore:
-      - dependency-name: google.golang.org/protobuf
-        versions:
-          - 1.26.0
-      # https://github.com/briandowns/spinner/issues/123
-      - dependency-name: github.com/briandowns/spinner
-        versions:
-          - 1.15.0
