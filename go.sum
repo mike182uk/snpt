@@ -171,8 +171,8 @@ github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:
 github.com/rogpeppe/go-charset v0.0.0-20180617210344-2471d30d28b4/go.mod h1:qgYeAmZ5ZIpBWTGllZSQnw97Dj+woV0toclVaRGI8pc=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
-github.com/segmentio/go-prompt v0.0.0-20161017233205-f0d19b6901ad h1:2ZO86bDscwpNrDfu3R0YlSF1igDzsk0EdrLzwgJqqUQ=
-github.com/segmentio/go-prompt v0.0.0-20161017233205-f0d19b6901ad/go.mod h1:B3ehdD1xPoWDKgrQgUaGk+m8H1xb1J5TyYDfKpKNeEE=
+github.com/segmentio/go-prompt v1.2.0 h1:o63/ApvCzF0mC8A07+e5zN/ZE9VTsWsinVSQcNFewUY=
+github.com/segmentio/go-prompt v1.2.0/go.mod h1:B3ehdD1xPoWDKgrQgUaGk+m8H1xb1J5TyYDfKpKNeEE=
 github.com/smartystreets/assertions v1.2.0 h1:42S6lae5dvLc7BrLu/0ugRtcFVjoJNMC/N3yZFZkDFs=
 github.com/smartystreets/assertions v1.2.0/go.mod h1:tcbTF8ujkAEcZ8TElKY+i30BzYlVhC/LOxJk7iOWnoo=
 github.com/smartystreets/goconvey v1.7.2 h1:9RBaZCeXEQ3UselpuwUQHltGVXvdwm6cv1hgR6gDIPg=
