@@ -1,6 +1,0 @@
-_snpt()
-{
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "cp copy ls list token sync write version" -- $cur) )
-}
-complete -F _snpt snpt

@@ -27,7 +27,6 @@ Save a snippet as a gist in GitHub, retrieve the snippet on the command line.
   - [Viewing help for a command](#viewing-help-for-a-command)
   - [Improve your workflow with fuzzy search](#improve-your-workflow-with-fuzzy-search)
   - [Alfred Workflow](#alfred-workflow)
-- [Bash completion](#bash-completion)
 - [Uninstalling snpt](#uninstalling-snpt)
 
 ## <a id="prerequisites"></a>Prerequisites
@@ -143,14 +142,6 @@ alias ws="snpt ls | fzf | snpt write" # ws for write snippet
 ### <a id="alfred-workflow"></a>Alfred Workflow
 
 [alfred-snpt](https://github.com/mike182uk/alfred-snpt) provides quick access to your snippets from [Alfred](https://www.alfredapp.com/).
-
-## <a id="bash-completion"></a>Bash completion
-
-If you want bash completion for snpt, download the file `bash_completion` to your preferred bash completion location (i.e `~/bash_completion/snpt`) and make sure you source this file in your `~/.bashrc` or equivalent:
-
-```bash
-source "$HOME/bash_completion/snpt"
-```
 
 ## <a id="uninstall"></a>Uninstalling snpt
 
