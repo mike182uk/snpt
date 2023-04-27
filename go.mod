@@ -19,7 +19,7 @@ require (
 	github.com/stretchr/testify v1.8.2
 	go.etcd.io/bbolt v1.3.6
 	golang.org/x/oauth2 v0.5.0
-	google.golang.org/protobuf v1.29.1
+	google.golang.org/protobuf v1.30.0
 	moul.io/http2curl v1.0.0 // indirect
 )
 
