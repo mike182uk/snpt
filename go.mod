@@ -17,7 +17,7 @@ require (
 	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/stretchr/testify v1.8.4
-	go.etcd.io/bbolt v1.3.6
+	go.etcd.io/bbolt v1.3.8
 	golang.org/x/oauth2 v0.12.0
 	google.golang.org/protobuf v1.31.0
 	moul.io/http2curl v1.0.0 // indirect
