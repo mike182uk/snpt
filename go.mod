@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/ararog/timeago v0.0.0-20160328174124-e9969cf18b8d
 	github.com/atotto/clipboard v0.1.4
-	github.com/briandowns/spinner v1.23.0
+	github.com/briandowns/spinner v1.23.1
 	github.com/elazarl/goproxy v0.0.0-20210801061803-8e322dfb79c4 // indirect
 	github.com/fatih/color v1.16.0
 	github.com/google/go-github v17.0.0+incompatible
