@@ -1,3 +1,5 @@
+#### ⚠️ This project is no longer maintained
+
 # <img src="docs/icon.png" height="28"> snpt
 
 [![Version](https://img.shields.io/github/release/mike182uk/snpt.svg?style=flat-square)](https://github.com/mike182uk/snpt)
